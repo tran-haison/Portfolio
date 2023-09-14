@@ -72,9 +72,16 @@ class CommonTextStyles {
     fontSize: DimensRes.sp16,
     fontWeight: FontWeight.w500,
   );
+
   static final grayMedium = GoogleFonts.montserrat(
     color: ColorsRes.darkGray1,
     fontSize: DimensRes.sp16,
     fontWeight: FontWeight.w500,
+  );
+
+  static final highlight = GoogleFonts.quicksand(
+    color: ColorsRes.black,
+    fontSize: DimensRes.sp40,
+    fontWeight: FontWeight.w700,
   );
 }

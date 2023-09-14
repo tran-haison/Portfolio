@@ -18,6 +18,7 @@ class CommonButton extends StatelessWidget {
     this.borderSide = BorderSide.none,
     this.isDisable = false,
     this.leadingIcon,
+    this.backIcon,
   }) : super(key: key);
 
   final GlobalKey<FormState>? formKey;
@@ -30,6 +31,7 @@ class CommonButton extends StatelessWidget {
   final BorderSide borderSide;
   final bool isDisable;
   final Widget? leadingIcon;
+  final Widget? backIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +63,10 @@ class CommonButton extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (leadingIcon != null) leadingIcon!,
-          if (leadingIcon != null) Gaps.hGap10,
+          if (leadingIcon != null) ...[
+            leadingIcon!,
+            Gaps.hGap10,
+          ],
           Flexible(
             child: Text(
               title,
@@ -76,6 +80,10 @@ class CommonButton extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
+          if (backIcon != null) ...[
+            Gaps.hGap10,
+            backIcon!,
+          ],
         ],
       ),
     );

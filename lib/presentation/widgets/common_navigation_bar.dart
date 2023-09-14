@@ -4,7 +4,6 @@ import 'package:portfolio/presentation/res/colors.dart';
 import 'package:portfolio/presentation/widgets/common_button.dart';
 import 'package:portfolio/presentation/widgets/common_text_styles.dart';
 
-import 'common_gaps.dart';
 import 'common_images.dart';
 
 class CommonNavigationBar extends StatelessWidget {
@@ -23,19 +22,20 @@ class CommonNavigationBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _buildLogo(),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _buildNavigationItem('Home'),
-              Gaps.hGap20,
-              _buildNavigationItem('About'),
-              Gaps.hGap20,
-              _buildNavigationItem('Works'),
-              Gaps.hGap20,
-              _buildNavigationItem('Contact'),
-              Gaps.hGap20,
-              _buildButtonResume(),
-            ],
+          Flexible(
+            child: Wrap(
+              alignment: WrapAlignment.end,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 20,
+              runSpacing: 5,
+              children: [
+                _buildNavigationItem('Home'),
+                _buildNavigationItem('About'),
+                _buildNavigationItem('Works'),
+                _buildNavigationItem('Contact'),
+                _buildButtonResume(),
+              ],
+            ),
           )
         ],
       ),

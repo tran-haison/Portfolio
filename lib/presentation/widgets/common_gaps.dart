@@ -39,6 +39,7 @@ class Gaps {
   static const vGap20 = SizedBox(height: 20);
   static const vGap22 = SizedBox(height: 22);
   static const vGap24 = SizedBox(height: 24);
+  static const vGap25 = SizedBox(height: 25);
   static const vGap26 = SizedBox(height: 26);
   static const vGap28 = SizedBox(height: 28);
   static const vGap30 = SizedBox(height: 30);
