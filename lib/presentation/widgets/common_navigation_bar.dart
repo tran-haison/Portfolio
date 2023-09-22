@@ -31,7 +31,8 @@ class CommonNavigationBar extends StatelessWidget {
               children: [
                 _buildNavigationItem('Home'),
                 _buildNavigationItem('About'),
-                _buildNavigationItem('Works'),
+                _buildNavigationItem('Experiences'),
+                _buildNavigationItem('Projects'),
                 _buildNavigationItem('Contact'),
                 _buildButtonResume(),
               ],

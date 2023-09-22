@@ -79,9 +79,10 @@ class CommonTextStyles {
     fontWeight: FontWeight.w500,
   );
 
-  static final highlight = GoogleFonts.quicksand(
+  static final highlight = GoogleFonts.goldman(
     color: ColorsRes.black,
-    fontSize: DimensRes.sp40,
+    fontSize: DimensRes.sp80,
     fontWeight: FontWeight.w700,
+    height: 1,
   );
 }

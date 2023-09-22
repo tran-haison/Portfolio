@@ -7,4 +7,5 @@ class Assets {
 
   // Image paths
   static const imgLogo = '$folderImages/img_logo.png';
+  static const imgDeveloper = '$folderImages/img_developer.gif';
 }
