@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/common/base_state_mixin.dart';
 import 'package:portfolio/res/assets.dart';
 import 'package:portfolio/widgets/common_button.dart';
 import 'package:portfolio/widgets/common_images.dart';
@@ -17,7 +18,7 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView> with BaseStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,52 +104,64 @@ class _HomeViewState extends State<HomeView> {
         children: [
           _buildSectionTitle(Constants.text.getToKnowMe),
           Gaps.vGap50,
-          Row(
-            children: [
-              Expanded(
-                flex: 2,
-                child: _buildItemContent(
-                  backgroundColor: ColorsRes.green3,
-                  iconData: Icons.info_outline,
-                  text: Constants.text.about,
-                ),
+          _buildContentRow([
+            Expanded(
+              flex: 2,
+              child: _buildItemContent(
+                backgroundColor: ColorsRes.green3,
+                iconData: Icons.info_outline,
+                text: Constants.text.about,
               ),
-              Gaps.hGap32,
-              Expanded(
-                flex: 3,
-                child: _buildItemContent(
-                  backgroundColor: ColorsRes.purple1,
-                  iconData: Icons.keyboard_command_key,
-                  text: Constants.text.experience,
-                ),
+            ),
+            Gaps.hGap32,
+            Expanded(
+              flex: 3,
+              child: _buildItemContent(
+                backgroundColor: ColorsRes.purple1,
+                iconData: Icons.keyboard_command_key,
+                text: Constants.text.experience,
               ),
-            ],
-          ),
+            ),
+          ]),
           Gaps.vGap50,
-          Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: _buildItemContent(
-                  backgroundColor: ColorsRes.brown2,
-                  iconData: Icons.build_circle_outlined,
-                  text: Constants.text.projects,
-                ),
+          _buildContentRow([
+            Expanded(
+              flex: 3,
+              child: _buildItemContent(
+                backgroundColor: ColorsRes.brown2,
+                iconData: Icons.build_circle_outlined,
+                text: Constants.text.projects,
               ),
-              Gaps.hGap32,
-              Expanded(
-                flex: 2,
-                child: _buildItemContent(
-                  backgroundColor: ColorsRes.blue1,
-                  iconData: Icons.ac_unit,
-                  text: Constants.text.contact,
-                ),
+            ),
+            Gaps.hGap32,
+            Expanded(
+              flex: 2,
+              child: _buildItemContent(
+                backgroundColor: ColorsRes.blue1,
+                iconData: Icons.ac_unit,
+                text: Constants.text.contact,
               ),
-            ],
-          ),
+            ),
+          ]),
         ],
       ),
     );
+  }
+
+  Widget _buildContentRow(List<Widget> children) {
+    return isMobile
+        ? Wrap(
+            direction: Axis.horizontal,
+            alignment: WrapAlignment.center,
+            runAlignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 0,
+            runSpacing: 30,
+            children: [...children],
+          )
+        : Row(
+            children: [...children],
+          );
   }
 
   Widget _buildSectionContact() {
