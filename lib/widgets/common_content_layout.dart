@@ -15,7 +15,10 @@ class CommonContentLayout extends StatelessWidget {
     return Container(
       alignment: Alignment.topCenter,
       color: backgroundColor,
-      padding: const EdgeInsets.all(50),
+      padding: const EdgeInsets.symmetric(
+        vertical: 50,
+        horizontal: 30,
+      ),
       child: ConstrainedBox(
         constraints: const BoxConstraints(
           maxWidth: 1200,
