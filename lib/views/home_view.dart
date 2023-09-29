@@ -172,10 +172,12 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
             spacing: 0,
             runSpacing: 50,
             children: [
-              Expanded(
+              SizedBox(
+                width: double.infinity,
                 child: firstWidget,
               ),
-              Expanded(
+              SizedBox(
+                width: double.infinity,
                 child: secondWidget,
               ),
             ],
@@ -205,15 +207,11 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
                   spacing: 0,
                   runSpacing: 30,
                   children: [
-                    Expanded(
-                      child: CommonTextField(
-                        hintText: Constants.text.name,
-                      ),
+                    CommonTextField(
+                      hintText: Constants.text.name,
                     ),
-                    Expanded(
-                      child: CommonTextField(
-                        hintText: Constants.text.email,
-                      ),
+                    CommonTextField(
+                      hintText: Constants.text.email,
                     ),
                   ],
                 );
