@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/presentation/res/assets.dart';
-import 'package:portfolio/presentation/res/colors.dart';
-import 'package:portfolio/presentation/widgets/common_button.dart';
-import 'package:portfolio/presentation/widgets/common_text_styles.dart';
+import 'package:portfolio/utils/constants.dart';
 
+import '../res/assets.dart';
+import '../res/colors.dart';
+import 'common_button.dart';
 import 'common_images.dart';
+import 'common_text_styles.dart';
 
 class CommonNavigationBar extends StatelessWidget {
   const CommonNavigationBar({super.key});
@@ -29,11 +30,11 @@ class CommonNavigationBar extends StatelessWidget {
               spacing: 20,
               runSpacing: 5,
               children: [
-                _buildNavigationItem('Home'),
-                _buildNavigationItem('About'),
-                _buildNavigationItem('Experiences'),
-                _buildNavigationItem('Projects'),
-                _buildNavigationItem('Contact'),
+                _buildNavigationItem(Constants.text.home),
+                _buildNavigationItem(Constants.text.about),
+                _buildNavigationItem(Constants.text.experience),
+                _buildNavigationItem(Constants.text.projects),
+                _buildNavigationItem(Constants.text.contact),
                 _buildButtonResume(),
               ],
             ),

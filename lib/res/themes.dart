@@ -7,7 +7,7 @@ class Themes {
     return ThemeData(
       useMaterial3: true,
       primaryColor: ColorsRes.primary,
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: ColorsRes.backgroundDarkTheme,
       appBarTheme: const AppBarTheme(
         centerTitle: false,
         elevation: 0,

@@ -1,8 +1,10 @@
 import 'package:go_router/go_router.dart';
-import 'package:portfolio/presentation/views/home_view.dart';
+
+import '../views/home_view.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(
+  initialLocation: Routers.home,
   routes: [
     GoRoute(
       path: Routers.home,
@@ -14,7 +16,7 @@ final appRouter = GoRouter(
 class Routers {
   static const home = '/';
   static const about = '/about';
-  static const experiences = '/experiences';
+  static const experience = '/experience';
   static const projects = '/projects';
   static const contact = '/contact';
 }

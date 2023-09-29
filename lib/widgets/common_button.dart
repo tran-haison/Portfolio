@@ -50,7 +50,9 @@ class CommonButton extends StatelessWidget {
       style: ButtonStyle(
         elevation: MaterialStateProperty.resolveWith((states) => 0),
         backgroundColor: MaterialStateProperty.resolveWith(
-          (states) => isDisable ? ColorsRes.textDisable : backgroundColor,
+          (states) => isDisable
+              ? ColorsRes.textDisable
+              : (backgroundColor ?? ColorsRes.primary),
         ),
         padding: MaterialStateProperty.resolveWith((states) => padding),
         shape: MaterialStateProperty.resolveWith(

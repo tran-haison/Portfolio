@@ -14,49 +14,49 @@ class CommonTextStyles {
   );
 
   static final large = GoogleFonts.montserrat(
-    color: ColorsRes.black,
+    color: ColorsRes.white,
     fontSize: DimensRes.sp24,
     fontWeight: FontWeight.w500,
   );
 
   static final largeBold = GoogleFonts.montserrat(
-    color: ColorsRes.black,
+    color: ColorsRes.white,
     fontSize: DimensRes.sp24,
     fontWeight: FontWeight.w700,
   );
 
   static final header = GoogleFonts.montserrat(
-    color: ColorsRes.black,
+    color: ColorsRes.white,
     fontSize: DimensRes.sp20,
     fontWeight: FontWeight.w500,
   );
 
   static final headerBold = GoogleFonts.montserrat(
-    color: ColorsRes.black,
+    color: ColorsRes.white,
     fontSize: DimensRes.sp20,
     fontWeight: FontWeight.w700,
   );
 
   static final medium = GoogleFonts.montserrat(
-    color: ColorsRes.black,
+    color: ColorsRes.white,
     fontSize: DimensRes.sp16,
     fontWeight: FontWeight.w500,
   );
 
   static final mediumBold = GoogleFonts.montserrat(
-    color: ColorsRes.black,
+    color: ColorsRes.white,
     fontSize: DimensRes.sp16,
     fontWeight: FontWeight.w700,
   );
 
   static final normal = GoogleFonts.montserrat(
-    color: ColorsRes.black,
+    color: ColorsRes.white,
     fontSize: DimensRes.sp14,
     fontWeight: FontWeight.w500,
   );
 
   static final small = GoogleFonts.montserrat(
-    color: ColorsRes.black,
+    color: ColorsRes.white,
     fontSize: DimensRes.sp12,
     fontWeight: FontWeight.w500,
   );
@@ -79,9 +79,16 @@ class CommonTextStyles {
     fontWeight: FontWeight.w500,
   );
 
-  static final highlight = GoogleFonts.goldman(
-    color: ColorsRes.black,
-    fontSize: DimensRes.sp80,
+  static final highlight = GoogleFonts.poppins(
+    color: ColorsRes.white,
+    fontSize: DimensRes.sp60,
+    fontWeight: FontWeight.w700,
+    height: 1,
+  );
+
+  static final sectionTitle = GoogleFonts.josefinSans(
+    color: ColorsRes.white,
+    fontSize: DimensRes.sp30,
     fontWeight: FontWeight.w700,
     height: 1,
   );

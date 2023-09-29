@@ -4,11 +4,12 @@ class ColorsRes {
   const ColorsRes._();
 
   /// Main colors
-  static const primary = Color(0xFF0166AD);
+  static const primary = Color(0xFF5C8374);
   static const secondary = Color(0xFFF6F6F6);
   static const contentLightTheme = Color(0xFF1D1D35);
   static const contentDarkTheme = Color(0xFFF5FCF9);
   static const backgroundTheme = Color(0xFFFFFFFF);
+  static const backgroundDarkTheme = Color(0xFF121212);
   static const warning = Color(0xFFF1DC3E);
   static const error = Color(0xFFF03A3A);
   static const overlay = Color(0x30000000);
@@ -30,6 +31,21 @@ class ColorsRes {
   static const lightGray2 = Color(0xFFC4C4C4);
   static const darkGray = Color(0xFF6C7475);
   static const darkGray1 = Color(0xFF545454);
+  static const green1 = Color(0xFF183D3D);
+  static const green2 = Color(0xFF5C8374);
+  static const green3 = Color(0xFF93B1A6);
+  static const blue1 = Color(0xFF7895CB);
+  static const blue2 = Color(0xFFA0BFE0);
+  static const blue3 = Color(0xFFC5DFF8);
+  static const brown1 = Color(0xFFA4907C);
+  static const brown2 = Color(0xFFC8B6A6);
+  static const brown3 = Color(0xFFF1DEC9);
+  static const orange1 = Color(0xFFD3756B);
+  static const orange2 = Color(0xFFF0997D);
+  static const orange3 = Color(0xFFFFC3A1);
+  static const purple1 = Color(0xFF99627A);
+  static const purple2 = Color(0xFFC88EA7);
+  static const purple3 = Color(0xFFE7CBCB);
 
   /// Widget colors
   static const buttonDisable = Color(0xFFF5F5F5);

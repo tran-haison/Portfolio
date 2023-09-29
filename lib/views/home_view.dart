@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/presentation/widgets/common_button.dart';
-import 'package:portfolio/presentation/widgets/common_content_layout.dart';
-import 'package:portfolio/presentation/widgets/common_images.dart';
-import 'package:portfolio/presentation/widgets/common_navigation_bar.dart';
-import 'package:portfolio/presentation/widgets/common_text_styles.dart';
+import 'package:portfolio/res/assets.dart';
+import 'package:portfolio/widgets/common_button.dart';
+import 'package:portfolio/widgets/common_images.dart';
 
-import '../res/assets.dart';
 import '../res/colors.dart';
+import '../utils/constants.dart';
+import '../widgets/common_content_layout.dart';
 import '../widgets/common_gaps.dart';
+import '../widgets/common_text_field.dart';
+import '../widgets/common_text_styles.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -22,21 +23,23 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const CommonNavigationBar(),
-              Gaps.vGap30,
-              _buildSectionHero(),
-              _buildSectionAbout(),
-              _buildSectionExperiences(),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 50),
+            child: Column(
+              children: [
+                _buildSectionIntro(),
+                _buildSectionContent(),
+                _buildSectionContact(),
+                _buildFooter(),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildSectionHero() {
+  Widget _buildSectionIntro() {
     return CommonContentLayout(
       child: Wrap(
         alignment: WrapAlignment.center,
@@ -49,91 +52,165 @@ class _HomeViewState extends State<HomeView> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              const CommonAssetImage(
+                image: Assets.imgSmile,
+                width: 100,
+                height: 100,
+              ),
+              Gaps.vGap30,
               Text(
-                'Hai Son Tran.',
+                Constants.text.hi,
                 style: CommonTextStyles.highlight,
               ),
-              Gaps.vGap15,
               Text(
-                'Mobile Engineer / Android / iOS / Flutter',
+                Constants.text.haiSonTran,
+                style: CommonTextStyles.highlight,
+              ),
+              Gaps.vGap30,
+              Text(
+                Constants.text.positionTitle,
                 style: CommonTextStyles.medium,
               ),
-              Gaps.vGap25,
-              CommonButton(
-                title: 'See my works',
-                backgroundColor: ColorsRes.black,
-                borderRadius: 50,
-                padding: const EdgeInsets.all(20),
-                backIcon: const Icon(
-                  Icons.arrow_right_alt,
-                  color: Colors.white,
-                ),
-                textStyle: CommonTextStyles.medium.copyWith(
-                  color: Colors.white,
-                ),
-                onPressed: () {},
-              ),
+              Gaps.vGap30,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _buildItemTechStack(
+                    image: Assets.imgAndroid,
+                  ),
+                  Gaps.hGap20,
+                  _buildItemTechStack(
+                    image: Assets.imgIos,
+                    imageColor: ColorsRes.white,
+                  ),
+                  Gaps.hGap20,
+                  _buildItemTechStack(
+                    image: Assets.imgFlutter,
+                  ),
+                ],
+              )
             ],
-          ),
-          const CommonAssetImage(
-            image: Assets.imgDeveloper,
           ),
         ],
       ),
     );
   }
 
-  Widget _buildSectionAbout() {
+  Widget _buildSectionContent() {
     return CommonContentLayout(
-      backgroundColor: ColorsRes.gray100,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          children: [
-            _buildSectionTitle('About'),
-            Gaps.vGap20,
-            Text(
-              'I\'m a Mobile Engineer with years of hands-on experience in designing, developing, and optimizing mobile applications.\n\n'
-              'Over the years, I\'ve honed my skills in both iOS and Android app development, leveraging languages such as Swift, Kotlin, and Java. I have a proven track record of collaborating with cross-functional teams to deliver innovative and robust mobile experiences that meet user needs and business objectives.\n\n'
-              'Let\'s connect and explore how I can contribute to your mobile development endeavors.',
-              style: CommonTextStyles.medium,
-            ),
-          ],
-        ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _buildSectionTitle(Constants.text.getToKnowMe),
+          Gaps.vGap50,
+          Row(
+            children: [
+              Expanded(
+                flex: 2,
+                child: _buildItemContent(
+                  backgroundColor: ColorsRes.green3,
+                  iconData: Icons.info_outline,
+                  text: Constants.text.about,
+                ),
+              ),
+              Gaps.hGap32,
+              Expanded(
+                flex: 3,
+                child: _buildItemContent(
+                  backgroundColor: ColorsRes.purple1,
+                  iconData: Icons.keyboard_command_key,
+                  text: Constants.text.experience,
+                ),
+              ),
+            ],
+          ),
+          Gaps.vGap50,
+          Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: _buildItemContent(
+                  backgroundColor: ColorsRes.brown2,
+                  iconData: Icons.build_circle_outlined,
+                  text: Constants.text.projects,
+                ),
+              ),
+              Gaps.hGap32,
+              Expanded(
+                flex: 2,
+                child: _buildItemContent(
+                  backgroundColor: ColorsRes.blue1,
+                  iconData: Icons.ac_unit,
+                  text: Constants.text.contact,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
 
-  Widget _buildSectionExperiences() {
+  Widget _buildSectionContact() {
     return CommonContentLayout(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _buildSectionTitle('Experiences'),
-            Gaps.vGap30,
-            GridView.builder(
-              shrinkWrap: true,
-              itemCount: 4,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 5 / 3,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _buildSectionTitle(Constants.text.howToReachMe),
+          Gaps.vGap50,
+          Row(
+            children: [
+              Expanded(
+                child: CommonTextField(
+                  hintText: Constants.text.name,
+                ),
               ),
-              itemBuilder: (_, index) {
-                final color = (index == 0 || index == 3)
-                    ? Colors.black87
-                    : ColorsRes.gray200;
-                return _buildItemExperience(
-                  backgroundColor: color,
-                );
-              },
+              Gaps.hGap32,
+              Expanded(
+                child: CommonTextField(
+                  hintText: Constants.text.email,
+                ),
+              ),
+            ],
+          ),
+          Gaps.vGap30,
+          CommonTextField(
+            hintText: Constants.text.subject,
+          ),
+          Gaps.vGap30,
+          CommonTextField(
+            hintText: Constants.text.message,
+            height: 300,
+            expands: true,
+          ),
+          Gaps.vGap30,
+          SizedBox(
+            width: double.maxFinite,
+            child: CommonButton(
+              onPressed: () {},
+              title: Constants.text.send,
+              textStyle: CommonTextStyles.medium,
+              padding: const EdgeInsets.all(30),
+              backIcon: const Icon(
+                Icons.send_rounded,
+                color: ColorsRes.white,
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
+    );
+  }
+
+  Widget _buildFooter() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          Constants.text.copyRight,
+          style: CommonTextStyles.medium,
+        ),
+      ],
     );
   }
 
@@ -144,7 +221,7 @@ class _HomeViewState extends State<HomeView> {
         Gaps.hGap50,
         Text(
           title,
-          style: CommonTextStyles.headerBold,
+          style: CommonTextStyles.sectionTitle,
         ),
         Gaps.hGap50,
         const Expanded(child: Gaps.hLine),
@@ -152,31 +229,67 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget _buildItemExperience({
+  Widget _buildItemContent({
     required Color backgroundColor,
+    required IconData iconData,
+    required String text,
   }) {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(30),
         color: backgroundColor,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: ColorsRes.primary,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Icon(
-              Icons.ac_unit,
+          Padding(
+            padding: const EdgeInsets.all(5),
+            child: Icon(
+              iconData,
               color: Colors.white,
             ),
-          )
+          ),
+          Gaps.vGap20,
+          Center(
+            child: Text(
+              text,
+              style: CommonTextStyles.headerBold,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Gaps.vGap20,
+          const Align(
+            alignment: Alignment.centerRight,
+            child: Padding(
+              padding: EdgeInsets.all(5),
+              child: Icon(
+                Icons.double_arrow,
+                color: ColorsRes.white,
+              ),
+            ),
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildItemTechStack({
+    required String image,
+    Color? imageColor,
+  }) {
+    return Container(
+      width: 50,
+      height: 50,
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: ColorsRes.black,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: CommonAssetImage(
+        image: image,
+        color: imageColor,
       ),
     );
   }
