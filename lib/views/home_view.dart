@@ -104,64 +104,85 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
         children: [
           _buildSectionTitle(Constants.text.getToKnowMe),
           Gaps.vGap50,
-          _buildContentRow([
-            Expanded(
-              flex: 2,
-              child: _buildItemContent(
-                backgroundColor: ColorsRes.green3,
-                iconData: Icons.info_outline,
-                text: Constants.text.about,
-              ),
+          _buildContentRow(
+            firstWidgetFlex: 2,
+            secondWidgetFlex: 3,
+            firstWidget: _buildItemContent(
+              backgroundColor: ColorsRes.green3,
+              iconData: Icons.info_outline,
+              text: Constants.text.about,
             ),
-            Gaps.hGap32,
-            Expanded(
-              flex: 3,
-              child: _buildItemContent(
-                backgroundColor: ColorsRes.purple1,
-                iconData: Icons.keyboard_command_key,
-                text: Constants.text.experience,
-              ),
+            secondWidget: _buildItemContent(
+              backgroundColor: ColorsRes.purple1,
+              iconData: Icons.keyboard_command_key,
+              text: Constants.text.experience,
             ),
-          ]),
+          ),
           Gaps.vGap50,
-          _buildContentRow([
-            Expanded(
-              flex: 3,
-              child: _buildItemContent(
-                backgroundColor: ColorsRes.brown2,
-                iconData: Icons.build_circle_outlined,
-                text: Constants.text.projects,
-              ),
+          _buildContentRow(
+            firstWidgetFlex: 3,
+            secondWidgetFlex: 2,
+            firstWidget: _buildItemContent(
+              backgroundColor: ColorsRes.brown2,
+              iconData: Icons.build_circle_outlined,
+              text: Constants.text.projects,
             ),
-            Gaps.hGap32,
-            Expanded(
-              flex: 2,
-              child: _buildItemContent(
-                backgroundColor: ColorsRes.blue1,
-                iconData: Icons.ac_unit,
-                text: Constants.text.contact,
-              ),
+            secondWidget: _buildItemContent(
+              backgroundColor: ColorsRes.blue1,
+              iconData: Icons.ac_unit,
+              text: Constants.text.contact,
             ),
-          ]),
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildContentRow(List<Widget> children) {
-    return isMobile
-        ? Wrap(
+  Widget _buildContentRow({
+    required Widget firstWidget,
+    required Widget secondWidget,
+    required int firstWidgetFlex,
+    required int secondWidgetFlex,
+  }) {
+    return LayoutBuilder(
+      builder: (_, constraints) {
+        final isDesktop =
+            constraints.maxWidth > Constants.common.maxWidthTablet;
+
+        if (isDesktop) {
+          return Row(
+            children: [
+              Expanded(
+                flex: firstWidgetFlex,
+                child: firstWidget,
+              ),
+              Gaps.hGap50,
+              Expanded(
+                flex: secondWidgetFlex,
+                child: secondWidget,
+              ),
+            ],
+          );
+        } else {
+          return Wrap(
             direction: Axis.horizontal,
             alignment: WrapAlignment.center,
             runAlignment: WrapAlignment.center,
             crossAxisAlignment: WrapCrossAlignment.center,
             spacing: 0,
-            runSpacing: 30,
-            children: [...children],
-          )
-        : Row(
-            children: [...children],
+            runSpacing: 50,
+            children: [
+              Expanded(
+                child: firstWidget,
+              ),
+              Expanded(
+                child: secondWidget,
+              ),
+            ],
           );
+        }
+      },
+    );
   }
 
   Widget _buildSectionContact() {
@@ -171,20 +192,49 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
         children: [
           _buildSectionTitle(Constants.text.howToReachMe),
           Gaps.vGap50,
-          Row(
-            children: [
-              Expanded(
-                child: CommonTextField(
-                  hintText: Constants.text.name,
-                ),
-              ),
-              Gaps.hGap32,
-              Expanded(
-                child: CommonTextField(
-                  hintText: Constants.text.email,
-                ),
-              ),
-            ],
+          LayoutBuilder(
+            builder: (_, constraints) {
+              final isMobile =
+                  constraints.maxWidth < Constants.common.maxWidthMobile;
+              if (isMobile) {
+                return Wrap(
+                  direction: Axis.horizontal,
+                  alignment: WrapAlignment.center,
+                  runAlignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 0,
+                  runSpacing: 30,
+                  children: [
+                    Expanded(
+                      child: CommonTextField(
+                        hintText: Constants.text.name,
+                      ),
+                    ),
+                    Expanded(
+                      child: CommonTextField(
+                        hintText: Constants.text.email,
+                      ),
+                    ),
+                  ],
+                );
+              } else {
+                return Row(
+                  children: [
+                    Expanded(
+                      child: CommonTextField(
+                        hintText: Constants.text.name,
+                      ),
+                    ),
+                    Gaps.hGap30,
+                    Expanded(
+                      child: CommonTextField(
+                        hintText: Constants.text.email,
+                      ),
+                    ),
+                  ],
+                );
+              }
+            },
           ),
           Gaps.vGap30,
           CommonTextField(
@@ -228,17 +278,30 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
   }
 
   Widget _buildSectionTitle(String title) {
-    return Row(
-      children: [
-        const Expanded(child: Gaps.hLine),
-        Gaps.hGap50,
-        Text(
-          title,
-          style: CommonTextStyles.sectionTitle,
-        ),
-        Gaps.hGap50,
-        const Expanded(child: Gaps.hLine),
-      ],
+    return LayoutBuilder(
+      builder: (_, constraints) {
+        final isMobile = constraints.maxWidth < Constants.common.maxWidthMobile;
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (!isMobile) ...[
+              const Expanded(child: Gaps.hLine),
+              Gaps.hGap50,
+            ],
+            Expanded(
+              child: Text(
+                title,
+                style: CommonTextStyles.sectionTitle,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            if (!isMobile) ...[
+              Gaps.hGap50,
+              const Expanded(child: Gaps.hLine),
+            ],
+          ],
+        );
+      },
     );
   }
 

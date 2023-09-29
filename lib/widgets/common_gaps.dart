@@ -21,6 +21,7 @@ class Gaps {
   static const hGap22 = SizedBox(width: 22);
   static const hGap24 = SizedBox(width: 24);
   static const hGap28 = SizedBox(width: 28);
+  static const hGap30 = SizedBox(width: 30);
   static const hGap32 = SizedBox(width: 32);
   static const hGap40 = SizedBox(width: 40);
   static const hGap50 = SizedBox(width: 50);

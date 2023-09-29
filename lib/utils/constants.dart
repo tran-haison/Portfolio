@@ -1,5 +1,12 @@
 class Constants {
   static final text = _Text();
+  static final common = _Common();
+}
+
+class _Common {
+  int get maxWidthMobile => 450;
+
+  int get maxWidthTablet => 800;
 }
 
 class _Text {
