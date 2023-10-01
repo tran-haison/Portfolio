@@ -86,7 +86,7 @@ class CommonTextStyles {
     height: 1,
   );
 
-  static final sectionTitle = GoogleFonts.josefinSans(
+  static final title = GoogleFonts.josefinSans(
     color: ColorsRes.white,
     fontSize: DimensRes.sp30,
     fontWeight: FontWeight.w700,
