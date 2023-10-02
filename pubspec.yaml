@@ -31,6 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_web_plugins:
+    sdk: flutter
+
   # https://pub.dev/packages/flutter_screenutil
   flutter_screenutil: ^5.9.0
 
