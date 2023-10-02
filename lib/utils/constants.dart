@@ -1,4 +1,6 @@
 class Constants {
+  const Constants._();
+
   static final text = _Text();
   static final common = _Common();
 }
@@ -47,6 +49,18 @@ class _Text {
   String get aLittleBitAboutMe => 'A little bit about me';
 
   String get copyRight => 'Copyright © 2023 ~ Hai Son Tran';
+
+  String get numberOfExperience => '3.5+';
+
+  String get yearsOfExperience => 'Years of Experience';
+
+  String get numberOfProjects => '10+';
+
+  String get projectsDone => 'Projects Done';
+
+  String get numberOfPlatforms => '2';
+
+  String get platformsUsed => 'Platforms Used';
 
   String get shortDescription =>
       'I build mobile applications for Android and iOS.';

@@ -6,7 +6,6 @@ import 'package:portfolio/utils/constants.dart';
 import 'package:portfolio/widgets/common_content_layout.dart';
 import 'package:portfolio/widgets/common_gaps.dart';
 import 'package:portfolio/widgets/common_images.dart';
-import 'package:portfolio/widgets/common_section_title.dart';
 import 'package:portfolio/widgets/common_text_styles.dart';
 
 import '../widgets/common_item_tech_stack.dart';
@@ -32,14 +31,13 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    _buildTitle(Constants.text.about),
+                    _buildPageTitle(Constants.text.about),
                     Gaps.vGap100,
-                    _buildIntro(),
+                    _buildBasicInfo(),
                     Gaps.vGap100,
                     _buildShortDescription(),
                     Gaps.vGap100,
-                    CommonSectionTitle(title: Constants.text.aLittleBitAboutMe),
-                    _buildLongDescription(),
+                    _buildDetailedInfo(),
                   ],
                 ),
               ),
@@ -72,7 +70,7 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
     );
   }
 
-  Widget _buildTitle(String title) {
+  Widget _buildPageTitle(String title) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -84,7 +82,7 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
     );
   }
 
-  Widget _buildIntro() {
+  Widget _buildBasicInfo() {
     return Wrap(
       direction: Axis.horizontal,
       alignment: WrapAlignment.center,
@@ -145,26 +143,55 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
     );
   }
 
-  Widget _buildLongDescription() {
+  Widget _buildDetailedInfo() {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Row(
-          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              '* Years of experience',
-              style: CommonTextStyles.medium,
+            Expanded(
+              child: _buildItemInfo(
+                primaryText: Constants.text.numberOfExperience,
+                secondaryText: Constants.text.yearsOfExperience,
+              ),
             ),
-            Text(
-              ':',
-              style: CommonTextStyles.medium,
+            Expanded(
+              child: _buildItemInfo(
+                primaryText: Constants.text.numberOfProjects,
+                secondaryText: Constants.text.projectsDone,
+              ),
             ),
-            Text(
-              '3.5',
-              style: CommonTextStyles.medium,
+            Expanded(
+              child: _buildItemInfo(
+                primaryText: Constants.text.numberOfPlatforms,
+                secondaryText: Constants.text.platformsUsed,
+              ),
             ),
           ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildItemInfo({
+    required String primaryText,
+    required String secondaryText,
+  }) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          primaryText,
+          style: CommonTextStyles.highlight.copyWith(
+            color: ColorsRes.primary,
+          ),
+        ),
+        Gaps.vGap20,
+        Text(
+          secondaryText,
+          style: CommonTextStyles.medium,
+          textAlign: TextAlign.center,
         ),
       ],
     );
