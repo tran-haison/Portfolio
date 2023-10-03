@@ -62,8 +62,39 @@ class _Text {
 
   String get platformsUsed => 'Platforms Used';
 
-  String get shortDescription =>
-      'I build mobile applications for Android and iOS.';
+  String get whatIDo => 'I build mobile applications for Android and iOS.';
+
+  String get whatIUse => 'What I use.';
+
+  String get number01 => '01.';
+
+  String get number02 => '02.';
+
+  String get number03 => '03.';
+
+  String get number04 => '04.';
+
+  String get operatingSystems => 'Operating Systems';
+
+  String get operatingSystemsDescription =>
+      'Proficient in multiple OS enabling me to work seamlessly across multiple platforms';
+
+  String get programmingLanguages => 'Programming Languages';
+
+  String get programmingLanguagesDescription =>
+      'My proficiency spans multiple programming languages, enhancing my versatility in mobile development';
+
+  String get frameworks => 'Frameworks';
+
+  String get frameworksDescription =>
+      'I excel in leveraging various frameworks to streamline and expedite the mobile development process';
+
+  String get tools => 'Tools';
+
+  String get toolsDescription =>
+      'I have a strong command of essential mobile development tools, empowering me to create robust and innovative applications';
+
+  String get myInterests => 'My interests.';
 
   String get longDescription =>
       'I\'m a Mobile Engineer with years of hands-on experience in designing, developing, and optimizing mobile applications.\n\n'

@@ -33,11 +33,19 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
                   children: [
                     _buildPageTitle(Constants.text.about),
                     Gaps.vGap100,
-                    _buildBasicInfo(),
+                    _buildSectionBasicInfo(),
                     Gaps.vGap100,
-                    _buildShortDescription(),
+                    _buildSectionTitle(Constants.text.whatIDo),
                     Gaps.vGap100,
-                    _buildDetailedInfo(),
+                    _buildSectionExperience(),
+                    Gaps.vGap100,
+                    _buildSectionTitle(Constants.text.whatIUse),
+                    Gaps.vGap100,
+                    _buildSectionTechnologyUsed(),
+                    Gaps.vGap100,
+                    _buildSectionTitle(Constants.text.myInterests),
+                    Gaps.vGap100,
+                    _buildSectionInterest(),
                   ],
                 ),
               ),
@@ -82,7 +90,7 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
     );
   }
 
-  Widget _buildBasicInfo() {
+  Widget _buildSectionBasicInfo() {
     return Wrap(
       direction: Axis.horizontal,
       alignment: WrapAlignment.center,
@@ -135,15 +143,15 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
     );
   }
 
-  Widget _buildShortDescription() {
+  Widget _buildSectionTitle(String title) {
     return Text(
-      Constants.text.shortDescription,
+      title,
       style: CommonTextStyles.title,
       textAlign: TextAlign.center,
     );
   }
 
-  Widget _buildDetailedInfo() {
+  Widget _buildSectionExperience() {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -151,19 +159,19 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: _buildItemInfo(
+              child: _buildItemExperience(
                 primaryText: Constants.text.numberOfExperience,
                 secondaryText: Constants.text.yearsOfExperience,
               ),
             ),
             Expanded(
-              child: _buildItemInfo(
+              child: _buildItemExperience(
                 primaryText: Constants.text.numberOfProjects,
                 secondaryText: Constants.text.projectsDone,
               ),
             ),
             Expanded(
-              child: _buildItemInfo(
+              child: _buildItemExperience(
                 primaryText: Constants.text.numberOfPlatforms,
                 secondaryText: Constants.text.platformsUsed,
               ),
@@ -174,7 +182,7 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
     );
   }
 
-  Widget _buildItemInfo({
+  Widget _buildItemExperience({
     required String primaryText,
     required String secondaryText,
   }) {
@@ -194,6 +202,203 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
           textAlign: TextAlign.center,
         ),
       ],
+    );
+  }
+
+  Widget _buildSectionTechnologyUsed() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: _buildItemTechnologyUsed(
+                number: Constants.text.number01,
+                title: Constants.text.operatingSystems,
+                description: Constants.text.operatingSystemsDescription,
+                images: [
+                  Assets.imgMacOs,
+                  Assets.imgUbuntu,
+                  Assets.imgWindows,
+                ],
+              ),
+            ),
+            Gaps.hGap50,
+            Expanded(
+              child: _buildItemTechnologyUsed(
+                number: Constants.text.number02,
+                title: Constants.text.programmingLanguages,
+                description: Constants.text.programmingLanguagesDescription,
+                images: [
+                  Assets.imgJava,
+                  Assets.imgKotlin,
+                  Assets.imgSwift,
+                  Assets.imgDart,
+                  Assets.imgCPlus,
+                  Assets.imgPython,
+                ],
+              ),
+            ),
+          ],
+        ),
+        Gaps.vGap50,
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: _buildItemTechnologyUsed(
+                number: Constants.text.number03,
+                title: Constants.text.frameworks,
+                description: Constants.text.frameworksDescription,
+                images: [
+                  Assets.imgFlutter,
+                  Assets.imgDjango,
+                ],
+              ),
+            ),
+            Gaps.hGap50,
+            Expanded(
+              child: _buildItemTechnologyUsed(
+                number: Constants.text.number04,
+                title: Constants.text.tools,
+                description: Constants.text.toolsDescription,
+                images: [
+                  Assets.imgAws,
+                  Assets.imgFirebase,
+                  Assets.imgFastlane,
+                  Assets.imgGit,
+                  Assets.imgMySql,
+                  Assets.imgPostgresql,
+                  Assets.imgAuth0,
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildItemTechnologyUsed({
+    required String number,
+    required String title,
+    required String description,
+    required List<String> images,
+  }) {
+    final imageWidgets = images.map(
+      (image) => Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CommonItemTechStack(
+            image: image,
+            padding: 10,
+            backgroundColor: ColorsRes.green2.withOpacity(0.5),
+          ),
+          Gaps.hGap10,
+        ],
+      ),
+    );
+
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        vertical: 30,
+        horizontal: 40,
+      ),
+      decoration: BoxDecoration(
+        color: ColorsRes.green3.withOpacity(0.2),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                number,
+                style: CommonTextStyles.highlight.copyWith(fontSize: 40),
+              ),
+              Gaps.hGap30,
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      title,
+                      style: CommonTextStyles.title.copyWith(fontSize: 24),
+                    ),
+                    Gaps.vGap5,
+                    Text(
+                      description,
+                      style: CommonTextStyles.medium.copyWith(
+                        color: ColorsRes.textGray,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Gaps.vGap30,
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ...imageWidgets,
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSectionInterest() {
+    return Wrap(
+      spacing: 20,
+      children: [
+        _buildItemInterest(
+          text: 'Badminton',
+          icon: Assets.icBadminton,
+        ),
+        _buildItemInterest(
+          text: 'Soccer',
+          icon: Assets.icSoccer,
+        ),
+        _buildItemInterest(
+          text: 'Gym',
+          icon: Assets.icGym,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildItemInterest({
+    required String text,
+    required String icon,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30),
+        color: ColorsRes.green3.withOpacity(0.2),
+      ),
+      padding: const EdgeInsets.symmetric(
+        vertical: 10,
+        horizontal: 20,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CommonAssetImage(image: icon),
+          Gaps.hGap10,
+          Text(
+            text,
+            style: CommonTextStyles.medium,
+          ),
+        ],
+      ),
     );
   }
 }
