@@ -96,8 +96,30 @@ class _Text {
 
   String get myInterests => 'My interests.';
 
+  String get badminton => 'Badminton';
+
+  String get soccer => 'Soccer';
+
+  String get gym => 'Gym';
+
+  String get games => 'Games';
+
+  String get running => 'Running';
+
+  String get menFashion => 'Men fashion';
+
+  String get sneakers => 'Sneakers';
+
+  String get deskSetup => 'Desk setup';
+
+  String get music => 'Music';
+
+  String get travelling => 'Travelling';
+
+  String get letConnect => 'Let\'s connect.';
+
   String get longDescription =>
       'I\'m a Mobile Engineer with years of hands-on experience in designing, developing, and optimizing mobile applications.\n\n'
-      'Over the years, I\'ve honed my skills in both iOS and Android app development, leveraging languages such as Swift, Kotlin, and Java. I have a proven track record of collaborating with cross-functional teams to deliver innovative and robust mobile experiences that meet user needs and business objectives.\n\n'
+      'Over the years, I\'ve honed my skills in both iOS and Android app development, leveraging languages such as Java, Kotlin, and Dart. I have a proven track record of collaborating with cross-functional teams to deliver innovative and robust mobile experiences that meet user needs and business objectives.\n\n'
       'Let\'s connect and explore how I can contribute to your mobile development endeavors.';
 }

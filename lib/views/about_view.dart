@@ -9,6 +9,7 @@ import 'package:portfolio/widgets/common_images.dart';
 import 'package:portfolio/widgets/common_text_styles.dart';
 
 import '../widgets/common_item_tech_stack.dart';
+import '../widgets/footer.dart';
 
 class AboutView extends StatefulWidget {
   const AboutView({super.key});
@@ -35,17 +36,25 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
                     Gaps.vGap100,
                     _buildSectionBasicInfo(),
                     Gaps.vGap100,
+                    _buildSectionDescription(),
+                    Gaps.vGap100,
                     _buildSectionTitle(Constants.text.whatIDo),
                     Gaps.vGap100,
                     _buildSectionExperience(),
                     Gaps.vGap100,
                     _buildSectionTitle(Constants.text.whatIUse),
-                    Gaps.vGap100,
+                    Gaps.vGap50,
                     _buildSectionTechnologyUsed(),
                     Gaps.vGap100,
                     _buildSectionTitle(Constants.text.myInterests),
-                    Gaps.vGap100,
+                    Gaps.vGap50,
                     _buildSectionInterest(),
+                    Gaps.vGap100,
+                    _buildSectionTitle(Constants.text.letConnect),
+                    Gaps.vGap50,
+                    _buildSectionSocial(),
+                    Gaps.vGap100,
+                    const Footer(),
                   ],
                 ),
               ),
@@ -87,6 +96,28 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
           style: CommonTextStyles.highlight,
         ),
       ],
+    );
+  }
+
+  Widget _buildSectionDescription() {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        maxWidth: 800,
+      ),
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          vertical: 30,
+          horizontal: 40,
+        ),
+        decoration: BoxDecoration(
+          color: ColorsRes.green3.withOpacity(0.2),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Text(
+          Constants.text.longDescription,
+          style: CommonTextStyles.medium,
+        ),
+      ),
     );
   }
 
@@ -358,18 +389,47 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
   Widget _buildSectionInterest() {
     return Wrap(
       spacing: 20,
+      runSpacing: 20,
       children: [
         _buildItemInterest(
-          text: 'Badminton',
-          icon: Assets.icBadminton,
+          text: Constants.text.gym,
+          icon: Assets.icGym,
         ),
         _buildItemInterest(
-          text: 'Soccer',
+          text: Constants.text.soccer,
           icon: Assets.icSoccer,
         ),
         _buildItemInterest(
-          text: 'Gym',
-          icon: Assets.icGym,
+          text: Constants.text.running,
+          icon: Assets.icRunning,
+        ),
+        _buildItemInterest(
+          text: Constants.text.badminton,
+          icon: Assets.icBadminton,
+        ),
+        _buildItemInterest(
+          text: Constants.text.games,
+          icon: Assets.icGames,
+        ),
+        _buildItemInterest(
+          text: Constants.text.deskSetup,
+          icon: Assets.icDeskSetup,
+        ),
+        _buildItemInterest(
+          text: Constants.text.menFashion,
+          icon: Assets.icFashion,
+        ),
+        _buildItemInterest(
+          text: Constants.text.sneakers,
+          icon: Assets.icSneakers,
+        ),
+        _buildItemInterest(
+          text: Constants.text.music,
+          icon: Assets.icMusic,
+        ),
+        _buildItemInterest(
+          text: Constants.text.travelling,
+          icon: Assets.icTravelling,
         ),
       ],
     );
@@ -381,7 +441,7 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
   }) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(50),
         color: ColorsRes.green3.withOpacity(0.2),
       ),
       padding: const EdgeInsets.symmetric(
@@ -391,11 +451,54 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CommonAssetImage(image: icon),
+          CommonAssetImage(
+            image: icon,
+            width: 30,
+            height: 30,
+          ),
           Gaps.hGap10,
           Text(
             text,
             style: CommonTextStyles.medium,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSectionSocial() {
+    return Wrap(
+      spacing: 20,
+      runSpacing: 20,
+      children: [
+        _buildItemSocial(icon: Assets.icLinkedIn),
+        _buildItemSocial(icon: Assets.icGithub),
+        _buildItemSocial(icon: Assets.icGmail),
+        _buildItemSocial(icon: Assets.icFacebook),
+        _buildItemSocial(icon: Assets.icInstagram),
+      ],
+    );
+  }
+
+  Widget _buildItemSocial({
+    required String icon,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: ColorsRes.green3.withOpacity(0.2),
+      ),
+      padding: const EdgeInsets.symmetric(
+        vertical: 10,
+        horizontal: 10,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CommonAssetImage(
+            image: icon,
+            width: 30,
+            height: 30,
           ),
         ],
       ),

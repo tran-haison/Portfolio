@@ -7,6 +7,7 @@ import 'package:portfolio/widgets/common_button.dart';
 import 'package:portfolio/widgets/common_images.dart';
 import 'package:portfolio/widgets/common_item_tech_stack.dart';
 import 'package:portfolio/widgets/common_section_title.dart';
+import 'package:portfolio/widgets/footer.dart';
 
 import '../res/colors.dart';
 import '../utils/constants.dart';
@@ -39,7 +40,7 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
                   Gaps.vGap100,
                   _buildContact(),
                   Gaps.vGap100,
-                  _buildFooter(),
+                  const Footer(),
                 ],
               ),
             ),
@@ -267,18 +268,6 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
               color: ColorsRes.white,
             ),
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildFooter() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          Constants.text.copyRight,
-          style: CommonTextStyles.medium,
         ),
       ],
     );

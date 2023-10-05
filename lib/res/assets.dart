@@ -36,4 +36,15 @@ class Assets {
   static const icGames = '$folderIcons/ic_games.png';
   static const icGym = '$folderIcons/ic_gym.png';
   static const icSoccer = '$folderIcons/ic_soccer.png';
+  static const icRunning = '$folderIcons/ic_running.png';
+  static const icFashion = '$folderIcons/ic_fashion.png';
+  static const icSneakers = '$folderIcons/ic_sneakers.png';
+  static const icDeskSetup = '$folderIcons/ic_desk_setup.png';
+  static const icMusic = '$folderIcons/ic_music.png';
+  static const icTravelling = '$folderIcons/ic_travelling.png';
+  static const icLinkedIn = '$folderIcons/ic_linkedin.png';
+  static const icGithub = '$folderIcons/ic_github.png';
+  static const icGmail = '$folderIcons/ic_gmail.png';
+  static const icFacebook = '$folderIcons/ic_facebook.png';
+  static const icInstagram = '$folderIcons/ic_instagram.png';
 }
