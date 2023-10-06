@@ -122,56 +122,62 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
   }
 
   Widget _buildSectionBasicInfo() {
-    return Wrap(
-      direction: Axis.horizontal,
-      alignment: WrapAlignment.center,
-      runAlignment: WrapAlignment.center,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      spacing: 50,
-      runSpacing: 50,
-      children: [
-        const CommonAssetImage(
-          image: Assets.imgAvatar,
-          height: 250,
-          width: 250,
-          radius: 150,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              Constants.text.haiSonTran2,
-              style: CommonTextStyles.title,
-            ),
-            Gaps.vGap20,
-            Text(
-              Constants.text.positionTitle,
-              style: CommonTextStyles.medium.copyWith(
-                color: ColorsRes.white,
+    return LayoutBuilder(builder: (_, constraints) {
+      final isDesktop = constraints.maxWidth > Constants.common.maxWidthTablet;
+
+      return Wrap(
+        direction: isDesktop ? Axis.horizontal : Axis.vertical,
+        alignment: WrapAlignment.center,
+        runAlignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: 50,
+        runSpacing: 50,
+        children: [
+          const CommonAssetImage(
+            image: Assets.imgAvatar,
+            height: 250,
+            width: 250,
+            radius: 150,
+          ),
+          Column(
+            crossAxisAlignment: isDesktop
+                ? CrossAxisAlignment.start
+                : CrossAxisAlignment.center,
+            children: [
+              Text(
+                Constants.text.haiSonTran2,
+                style: CommonTextStyles.title,
               ),
-            ),
-            Gaps.vGap20,
-            const Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                CommonItemTechStack(
-                  image: Assets.imgAndroid,
+              Gaps.vGap20,
+              Text(
+                Constants.text.positionTitle,
+                style: CommonTextStyles.medium.copyWith(
+                  color: ColorsRes.white,
                 ),
-                Gaps.hGap20,
-                CommonItemTechStack(
-                  image: Assets.imgIos,
-                  imageColor: ColorsRes.white,
-                ),
-                Gaps.hGap20,
-                CommonItemTechStack(
-                  image: Assets.imgFlutter,
-                ),
-              ],
-            ),
-          ],
-        ),
-      ],
-    );
+              ),
+              Gaps.vGap20,
+              const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CommonItemTechStack(
+                    image: Assets.imgAndroid,
+                  ),
+                  Gaps.hGap20,
+                  CommonItemTechStack(
+                    image: Assets.imgIos,
+                    imageColor: ColorsRes.white,
+                  ),
+                  Gaps.hGap20,
+                  CommonItemTechStack(
+                    image: Assets.imgFlutter,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      );
+    });
   }
 
   Widget _buildSectionTitle(String title) {
@@ -183,34 +189,44 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
   }
 
   Widget _buildSectionExperience() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return LayoutBuilder(builder: (_, constraints) {
+      final isSmallScreen = constraints.maxWidth <= 600;
+
+      final itemExperience = _buildItemExperience(
+        primaryText: Constants.text.numberOfExperience,
+        secondaryText: Constants.text.yearsOfExperience,
+      );
+      final itemProject = _buildItemExperience(
+        primaryText: Constants.text.numberOfProjects,
+        secondaryText: Constants.text.projectsDone,
+      );
+      final itemPlatform = _buildItemExperience(
+        primaryText: Constants.text.numberOfPlatforms,
+        secondaryText: Constants.text.platformsUsed,
+      );
+
+      if (isSmallScreen) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
-              child: _buildItemExperience(
-                primaryText: Constants.text.numberOfExperience,
-                secondaryText: Constants.text.yearsOfExperience,
-              ),
-            ),
-            Expanded(
-              child: _buildItemExperience(
-                primaryText: Constants.text.numberOfProjects,
-                secondaryText: Constants.text.projectsDone,
-              ),
-            ),
-            Expanded(
-              child: _buildItemExperience(
-                primaryText: Constants.text.numberOfPlatforms,
-                secondaryText: Constants.text.platformsUsed,
-              ),
-            ),
+            itemExperience,
+            Gaps.vGap100,
+            itemProject,
+            Gaps.vGap100,
+            itemPlatform,
           ],
-        ),
-      ],
-    );
+        );
+      } else {
+        return Row(
+          children: [
+            Expanded(child: itemExperience),
+            Expanded(child: itemProject),
+            Expanded(child: itemPlatform),
+          ],
+        );
+      }
+    });
   }
 
   Widget _buildItemExperience({
@@ -237,78 +253,89 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
   }
 
   Widget _buildSectionTechnologyUsed() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: _buildItemTechnologyUsed(
-                number: Constants.text.number01,
-                title: Constants.text.operatingSystems,
-                description: Constants.text.operatingSystemsDescription,
-                images: [
-                  Assets.imgMacOs,
-                  Assets.imgUbuntu,
-                  Assets.imgWindows,
-                ],
-              ),
+    return LayoutBuilder(builder: (_, constraints) {
+      final isLargeScreen = constraints.maxWidth > 1000;
+
+      final itemOperatingSystem = _buildItemTechnologyUsed(
+        number: Constants.text.number01,
+        title: Constants.text.operatingSystems,
+        description: Constants.text.operatingSystemsDescription,
+        images: [
+          Assets.imgMacOs,
+          Assets.imgUbuntu,
+          Assets.imgWindows,
+        ],
+      );
+      final itemProgrammingLanguage = _buildItemTechnologyUsed(
+        number: Constants.text.number02,
+        title: Constants.text.programmingLanguages,
+        description: Constants.text.programmingLanguagesDescription,
+        images: [
+          Assets.imgJava,
+          Assets.imgKotlin,
+          Assets.imgSwift,
+          Assets.imgDart,
+          Assets.imgCPlus,
+          Assets.imgPython,
+        ],
+      );
+      final itemFramework = _buildItemTechnologyUsed(
+        number: Constants.text.number03,
+        title: Constants.text.frameworks,
+        description: Constants.text.frameworksDescription,
+        images: [
+          Assets.imgFlutter,
+          Assets.imgDjango,
+        ],
+      );
+      final itemTool = _buildItemTechnologyUsed(
+        number: Constants.text.number04,
+        title: Constants.text.tools,
+        description: Constants.text.toolsDescription,
+        images: [
+          Assets.imgAws,
+          Assets.imgFirebase,
+          Assets.imgFastlane,
+          Assets.imgGit,
+          Assets.imgMySql,
+          Assets.imgPostgresql,
+          Assets.imgAuth0,
+        ],
+      );
+
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (isLargeScreen) ...[
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(child: itemOperatingSystem),
+                Gaps.hGap50,
+                Expanded(child: itemProgrammingLanguage),
+              ],
             ),
-            Gaps.hGap50,
-            Expanded(
-              child: _buildItemTechnologyUsed(
-                number: Constants.text.number02,
-                title: Constants.text.programmingLanguages,
-                description: Constants.text.programmingLanguagesDescription,
-                images: [
-                  Assets.imgJava,
-                  Assets.imgKotlin,
-                  Assets.imgSwift,
-                  Assets.imgDart,
-                  Assets.imgCPlus,
-                  Assets.imgPython,
-                ],
-              ),
+            Gaps.vGap50,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(child: itemFramework),
+                Gaps.hGap50,
+                Expanded(child: itemTool),
+              ],
             ),
+          ] else ...[
+            itemOperatingSystem,
+            Gaps.vGap50,
+            itemProgrammingLanguage,
+            Gaps.vGap50,
+            itemFramework,
+            Gaps.vGap50,
+            itemTool,
           ],
-        ),
-        Gaps.vGap50,
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: _buildItemTechnologyUsed(
-                number: Constants.text.number03,
-                title: Constants.text.frameworks,
-                description: Constants.text.frameworksDescription,
-                images: [
-                  Assets.imgFlutter,
-                  Assets.imgDjango,
-                ],
-              ),
-            ),
-            Gaps.hGap50,
-            Expanded(
-              child: _buildItemTechnologyUsed(
-                number: Constants.text.number04,
-                title: Constants.text.tools,
-                description: Constants.text.toolsDescription,
-                images: [
-                  Assets.imgAws,
-                  Assets.imgFirebase,
-                  Assets.imgFastlane,
-                  Assets.imgGit,
-                  Assets.imgMySql,
-                  Assets.imgPostgresql,
-                  Assets.imgAuth0,
-                ],
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
+        ],
+      );
+    });
   }
 
   Widget _buildItemTechnologyUsed({
@@ -318,20 +345,15 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
     required List<String> images,
   }) {
     final imageWidgets = images.map(
-      (image) => Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CommonItemTechStack(
-            image: image,
-            padding: 10,
-            backgroundColor: ColorsRes.green2.withOpacity(0.5),
-          ),
-          Gaps.hGap10,
-        ],
+      (image) => CommonItemTechStack(
+        image: image,
+        padding: 10,
+        backgroundColor: ColorsRes.green2.withOpacity(0.5),
       ),
     );
 
     return Container(
+      width: double.maxFinite,
       padding: const EdgeInsets.symmetric(
         vertical: 30,
         horizontal: 40,
@@ -375,8 +397,9 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
             ],
           ),
           Gaps.vGap30,
-          Row(
-            mainAxisSize: MainAxisSize.min,
+          Wrap(
+            runSpacing: 10,
+            spacing: 10,
             children: [
               ...imageWidgets,
             ],
