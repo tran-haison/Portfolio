@@ -17,11 +17,11 @@ class _Url {
 
   String get github => 'https://github.com/tran-haison';
 
-  String get gmail => '';
+  String get gmail => 'mailto:haison250199@gmail.com';
 
   String get facebook => 'https://www.facebook.com/tran.haison.2501/';
 
-  String get instagram => '';
+  String get instagram => 'https://www.instagram.com/tran_haison/';
 }
 
 class _Text {

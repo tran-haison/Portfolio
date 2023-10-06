@@ -21,7 +21,30 @@ class AboutView extends StatefulWidget {
   State<AboutView> createState() => _AboutViewState();
 }
 
-class _AboutViewState extends State<AboutView> with BaseStateMixin {
+class _AboutViewState extends State<AboutView>
+    with BaseStateMixin, TickerProviderStateMixin {
+  late final _rotationController = AnimationController(
+    vsync: this,
+    duration: const Duration(seconds: 30),
+  );
+  late final _rotationAnimation = CurvedAnimation(
+    parent: _rotationController,
+    curve: Curves.linear,
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    _rotationController.repeat();
+  }
+
+  @override
+  void dispose() {
+    _rotationAnimation.dispose();
+    _rotationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,11 +162,23 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
         spacing: 50,
         runSpacing: 50,
         children: [
-          const CommonAssetImage(
-            image: Assets.imgAvatar,
-            height: 250,
-            width: 250,
-            radius: 150,
+          RotationTransition(
+            turns: _rotationAnimation,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(150),
+                border: Border.all(
+                  color: ColorsRes.white,
+                  width: 2,
+                ),
+              ),
+              child: const CommonAssetImage(
+                image: Assets.imgAvatar,
+                height: 250,
+                width: 250,
+                radius: 150,
+              ),
+            ),
           ),
           Column(
             crossAxisAlignment: isDesktop
@@ -530,6 +565,7 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
   }) {
     return InkWell(
       onTap: onTap,
+      borderRadius: BorderRadius.circular(10),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
