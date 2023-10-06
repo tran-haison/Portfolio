@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:portfolio/common/base_state_mixin.dart';
 import 'package:portfolio/res/assets.dart';
 import 'package:portfolio/res/colors.dart';
+import 'package:portfolio/router/routers.dart';
 import 'package:portfolio/utils/constants.dart';
 import 'package:portfolio/widgets/common_content_layout.dart';
 import 'package:portfolio/widgets/common_gaps.dart';
 import 'package:portfolio/widgets/common_images.dart';
 import 'package:portfolio/widgets/common_text_styles.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../widgets/common_item_tech_stack.dart';
 import '../widgets/footer.dart';
@@ -68,19 +71,22 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
   Widget _buildHeader(Color backgroundColor) {
     return Row(
       children: [
-        Container(
-          width: 60,
-          height: 60,
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: const BorderRadius.only(
-              bottomRight: Radius.circular(10),
+        InkWell(
+          onTap: () => context.go(Routers.home),
+          child: Container(
+            width: 60,
+            height: 60,
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(10),
+              ),
             ),
-          ),
-          child: const CommonAssetImage(
-            image: Assets.icHome,
-            color: ColorsRes.white,
+            child: const CommonAssetImage(
+              image: Assets.icHome,
+              color: ColorsRes.white,
+            ),
           ),
         ),
       ],
@@ -494,37 +500,62 @@ class _AboutViewState extends State<AboutView> with BaseStateMixin {
       spacing: 20,
       runSpacing: 20,
       children: [
-        _buildItemSocial(icon: Assets.icLinkedIn),
-        _buildItemSocial(icon: Assets.icGithub),
-        _buildItemSocial(icon: Assets.icGmail),
-        _buildItemSocial(icon: Assets.icFacebook),
-        _buildItemSocial(icon: Assets.icInstagram),
+        _buildItemSocial(
+          icon: Assets.icLinkedIn,
+          onTap: () => _launchUrl(Constants.url.linkedin),
+        ),
+        _buildItemSocial(
+          icon: Assets.icGithub,
+          onTap: () => _launchUrl(Constants.url.github),
+        ),
+        _buildItemSocial(
+          icon: Assets.icGmail,
+          onTap: () => _launchUrl(Constants.url.gmail),
+        ),
+        _buildItemSocial(
+          icon: Assets.icFacebook,
+          onTap: () => _launchUrl(Constants.url.facebook),
+        ),
+        _buildItemSocial(
+          icon: Assets.icInstagram,
+          onTap: () => _launchUrl(Constants.url.instagram),
+        ),
       ],
     );
   }
 
   Widget _buildItemSocial({
     required String icon,
+    required VoidCallback onTap,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: ColorsRes.green3.withOpacity(0.2),
-      ),
-      padding: const EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 10,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CommonAssetImage(
-            image: icon,
-            width: 30,
-            height: 30,
-          ),
-        ],
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: ColorsRes.green3.withOpacity(0.2),
+        ),
+        padding: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 10,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CommonAssetImage(
+              image: icon,
+              width: 30,
+              height: 30,
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  Future<void> _launchUrl(String url) async {
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    }
   }
 }

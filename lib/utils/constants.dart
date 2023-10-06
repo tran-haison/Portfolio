@@ -3,12 +3,25 @@ class Constants {
 
   static final text = _Text();
   static final common = _Common();
+  static final url = _Url();
 }
 
 class _Common {
   int get maxWidthMobile => 450;
 
   int get maxWidthTablet => 800;
+}
+
+class _Url {
+  String get linkedin => 'https://www.linkedin.com/in/tranhaison/';
+
+  String get github => 'https://github.com/tran-haison';
+
+  String get gmail => '';
+
+  String get facebook => 'https://www.facebook.com/tran.haison.2501/';
+
+  String get instagram => '';
 }
 
 class _Text {
