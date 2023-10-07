@@ -130,25 +130,28 @@ class _AboutViewState extends State<AboutView>
   }
 
   Widget _buildSectionDescription() {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(
-        maxWidth: 800,
-      ),
-      child: Container(
-        padding: const EdgeInsets.symmetric(
-          vertical: 30,
-          horizontal: 40,
+    return LayoutBuilder(builder: (_, constraints) {
+      final isMobile = constraints.maxWidth <= Constants.common.maxWidthMobile;
+      return ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxWidth: 800,
         ),
-        decoration: BoxDecoration(
-          color: ColorsRes.green3.withOpacity(0.2),
-          borderRadius: BorderRadius.circular(20),
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+            vertical: 30,
+            horizontal: 40,
+          ),
+          decoration: BoxDecoration(
+            color: ColorsRes.green3.withOpacity(0.2),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Text(
+            Constants.text.longDescription,
+            style: isMobile ? CommonTextStyles.normal : CommonTextStyles.medium,
+          ),
         ),
-        child: Text(
-          Constants.text.longDescription,
-          style: CommonTextStyles.medium,
-        ),
-      ),
-    );
+      );
+    });
   }
 
   Widget _buildSectionBasicInfo() {
@@ -450,8 +453,8 @@ class _AboutViewState extends State<AboutView>
 
   Widget _buildSectionInterest() {
     return Wrap(
-      spacing: 20,
-      runSpacing: 20,
+      spacing: 15,
+      runSpacing: 15,
       children: [
         _buildItemInterest(
           text: Constants.text.gym,
@@ -515,8 +518,8 @@ class _AboutViewState extends State<AboutView>
         children: [
           CommonAssetImage(
             image: icon,
-            width: 30,
-            height: 30,
+            width: 25,
+            height: 25,
           ),
           Gaps.hGap10,
           Text(
@@ -531,8 +534,8 @@ class _AboutViewState extends State<AboutView>
   Widget _buildSectionSocial() {
     return Wrap(
       alignment: WrapAlignment.center,
-      spacing: 20,
-      runSpacing: 20,
+      spacing: 15,
+      runSpacing: 15,
       children: [
         CommonItemSocial(
           icon: Assets.icLinkedIn,
