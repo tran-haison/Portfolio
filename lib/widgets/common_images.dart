@@ -10,6 +10,7 @@ class CommonAssetImage extends StatelessWidget {
     this.fit,
     this.radius,
     this.backgroundColor,
+    this.padding,
   });
 
   final String image;
@@ -19,6 +20,7 @@ class CommonAssetImage extends StatelessWidget {
   final BoxFit? fit;
   final double? radius;
   final Color? backgroundColor;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class CommonAssetImage extends StatelessWidget {
         color: backgroundColor,
         borderRadius: BorderRadius.circular(radius ?? 0),
       ),
+      padding: padding,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(radius ?? 0),
         child: Image.asset(

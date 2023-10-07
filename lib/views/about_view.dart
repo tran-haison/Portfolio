@@ -11,6 +11,7 @@ import 'package:portfolio/widgets/common_images.dart';
 import 'package:portfolio/widgets/common_text_styles.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../widgets/common_item_social.dart';
 import '../widgets/common_item_tech_stack.dart';
 import '../widgets/footer.dart';
 
@@ -395,10 +396,7 @@ class _AboutViewState extends State<AboutView>
 
     return Container(
       width: double.maxFinite,
-      padding: const EdgeInsets.symmetric(
-        vertical: 30,
-        horizontal: 40,
-      ),
+      padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
         color: ColorsRes.green3.withOpacity(0.2),
         borderRadius: BorderRadius.circular(20),
@@ -428,7 +426,7 @@ class _AboutViewState extends State<AboutView>
                     Gaps.vGap5,
                     Text(
                       description,
-                      style: CommonTextStyles.medium.copyWith(
+                      style: CommonTextStyles.normal.copyWith(
                         color: ColorsRes.textGray,
                       ),
                     ),
@@ -523,7 +521,7 @@ class _AboutViewState extends State<AboutView>
           Gaps.hGap10,
           Text(
             text,
-            style: CommonTextStyles.medium,
+            style: CommonTextStyles.normal,
           ),
         ],
       ),
@@ -532,60 +530,31 @@ class _AboutViewState extends State<AboutView>
 
   Widget _buildSectionSocial() {
     return Wrap(
+      alignment: WrapAlignment.center,
       spacing: 20,
       runSpacing: 20,
       children: [
-        _buildItemSocial(
+        CommonItemSocial(
           icon: Assets.icLinkedIn,
           onTap: () => _launchUrl(Constants.url.linkedin),
         ),
-        _buildItemSocial(
+        CommonItemSocial(
           icon: Assets.icGithub,
           onTap: () => _launchUrl(Constants.url.github),
         ),
-        _buildItemSocial(
+        CommonItemSocial(
           icon: Assets.icGmail,
           onTap: () => _launchUrl(Constants.url.gmail),
         ),
-        _buildItemSocial(
+        CommonItemSocial(
           icon: Assets.icFacebook,
           onTap: () => _launchUrl(Constants.url.facebook),
         ),
-        _buildItemSocial(
+        CommonItemSocial(
           icon: Assets.icInstagram,
           onTap: () => _launchUrl(Constants.url.instagram),
         ),
       ],
-    );
-  }
-
-  Widget _buildItemSocial({
-    required String icon,
-    required VoidCallback onTap,
-  }) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(10),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: ColorsRes.green3.withOpacity(0.2),
-        ),
-        padding: const EdgeInsets.symmetric(
-          vertical: 10,
-          horizontal: 10,
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            CommonAssetImage(
-              image: icon,
-              width: 30,
-              height: 30,
-            ),
-          ],
-        ),
-      ),
     );
   }
 
