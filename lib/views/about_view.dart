@@ -51,6 +51,7 @@ class _AboutViewState extends State<AboutView>
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -158,70 +159,82 @@ class _AboutViewState extends State<AboutView>
     return LayoutBuilder(builder: (_, constraints) {
       final isDesktop = constraints.maxWidth > Constants.common.maxWidthTablet;
 
-      return Wrap(
-        direction: isDesktop ? Axis.horizontal : Axis.vertical,
-        alignment: WrapAlignment.center,
-        runAlignment: WrapAlignment.center,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        spacing: 50,
-        runSpacing: 50,
-        children: [
-          RotationTransition(
-            turns: _rotationAnimation,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(150),
-                border: Border.all(
-                  color: ColorsRes.white,
-                  width: 2,
-                ),
-              ),
-              child: const CommonAssetImage(
-                image: Assets.imgAvatar,
-                height: 250,
-                width: 250,
-                radius: 150,
+      final children = [
+        RotationTransition(
+          turns: _rotationAnimation,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(150),
+              border: Border.all(
+                color: ColorsRes.white,
+                width: 2,
               ),
             ),
+            child: const CommonAssetImage(
+              image: Assets.imgAvatar,
+              height: 250,
+              width: 250,
+              radius: 150,
+            ),
           ),
-          Column(
-            crossAxisAlignment: isDesktop
-                ? CrossAxisAlignment.start
-                : CrossAxisAlignment.center,
-            children: [
-              Text(
-                Constants.text.haiSonTran2,
-                style: CommonTextStyles.title,
+        ),
+        if (!isDesktop) Gaps.vGap50,
+        Column(
+          crossAxisAlignment:
+              isDesktop ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+          children: [
+            Text(
+              Constants.text.haiSonTran2,
+              style: CommonTextStyles.title,
+              textAlign: TextAlign.center,
+            ),
+            Gaps.vGap20,
+            Text(
+              Constants.text.positionTitle,
+              style: CommonTextStyles.medium.copyWith(
+                color: ColorsRes.white,
               ),
-              Gaps.vGap20,
-              Text(
-                Constants.text.positionTitle,
-                style: CommonTextStyles.medium.copyWith(
-                  color: ColorsRes.white,
+              textAlign: TextAlign.center,
+            ),
+            Gaps.vGap20,
+            const Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CommonItemTechStack(
+                  image: Assets.imgAndroid,
                 ),
-              ),
-              Gaps.vGap20,
-              const Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CommonItemTechStack(
-                    image: Assets.imgAndroid,
-                  ),
-                  Gaps.hGap20,
-                  CommonItemTechStack(
-                    image: Assets.imgIos,
-                    imageColor: ColorsRes.white,
-                  ),
-                  Gaps.hGap20,
-                  CommonItemTechStack(
-                    image: Assets.imgFlutter,
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      );
+                Gaps.hGap20,
+                CommonItemTechStack(
+                  image: Assets.imgIos,
+                  imageColor: ColorsRes.white,
+                ),
+                Gaps.hGap20,
+                CommonItemTechStack(
+                  image: Assets.imgFlutter,
+                ),
+              ],
+            ),
+          ],
+        ),
+      ];
+
+      if (isDesktop) {
+        return Wrap(
+          direction: Axis.horizontal,
+          alignment: WrapAlignment.center,
+          runAlignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 50,
+          runSpacing: 50,
+          children: children,
+        );
+      } else {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: children,
+        );
+      }
     });
   }
 
