@@ -110,7 +110,6 @@ class _AboutViewState extends State<AboutView>
             ),
             child: const CommonAssetImage(
               image: Assets.icHome,
-              color: ColorsRes.white,
             ),
           ),
         ),
@@ -206,7 +205,6 @@ class _AboutViewState extends State<AboutView>
                 Gaps.hGap20,
                 CommonItemTechStack(
                   image: Assets.imgIos,
-                  imageColor: ColorsRes.white,
                 ),
                 Gaps.hGap20,
                 CommonItemTechStack(

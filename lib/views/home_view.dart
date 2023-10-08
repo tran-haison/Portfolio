@@ -91,7 +91,6 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
                 Gaps.hGap20,
                 CommonItemTechStack(
                   image: Assets.imgIos,
-                  imageColor: ColorsRes.white,
                 ),
                 Gaps.hGap20,
                 CommonItemTechStack(
