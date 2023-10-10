@@ -125,7 +125,9 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
             backgroundColor: ColorsRes.purple1,
             iconData: Icons.keyboard_command_key,
             text: Constants.text.experience,
-            onTap: () {},
+            onTap: () {
+              context.go(Routers.experience);
+            },
           ),
         ),
         Gaps.vGap50,

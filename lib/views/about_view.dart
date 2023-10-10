@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:portfolio/common/base_state_mixin.dart';
 import 'package:portfolio/res/assets.dart';
 import 'package:portfolio/res/colors.dart';
-import 'package:portfolio/router/routers.dart';
 import 'package:portfolio/utils/constants.dart';
+import 'package:portfolio/utils/utils.dart';
 import 'package:portfolio/widgets/common_content_layout.dart';
 import 'package:portfolio/widgets/common_gaps.dart';
 import 'package:portfolio/widgets/common_images.dart';
+import 'package:portfolio/widgets/common_page_title.dart';
 import 'package:portfolio/widgets/common_text_styles.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:portfolio/widgets/header.dart';
 
 import '../widgets/common_item_social.dart';
 import '../widgets/common_item_tech_stack.dart';
@@ -55,12 +55,12 @@ class _AboutViewState extends State<AboutView>
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _buildHeader(ColorsRes.green3),
+              const Header(backgroundColor: ColorsRes.green3),
               CommonContentLayout(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    _buildPageTitle(Constants.text.about),
+                    CommonPageTitle(title: Constants.text.about),
                     Gaps.vGap100,
                     _buildSectionBasicInfo(),
                     Gaps.vGap100,
@@ -90,42 +90,6 @@ class _AboutViewState extends State<AboutView>
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildHeader(Color backgroundColor) {
-    return Row(
-      children: [
-        InkWell(
-          onTap: () => context.go(Routers.home),
-          child: Container(
-            width: 60,
-            height: 60,
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(10),
-              ),
-            ),
-            child: const CommonAssetImage(
-              image: Assets.icHome,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildPageTitle(String title) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          title,
-          style: CommonTextStyles.highlight,
-        ),
-      ],
     );
   }
 
@@ -550,31 +514,25 @@ class _AboutViewState extends State<AboutView>
       children: [
         CommonItemSocial(
           icon: Assets.icLinkedIn,
-          onTap: () => _launchUrl(Constants.url.linkedin),
+          onTap: () => Utils.launchUrl(Constants.url.linkedin),
         ),
         CommonItemSocial(
           icon: Assets.icGithub,
-          onTap: () => _launchUrl(Constants.url.github),
+          onTap: () => Utils.launchUrl(Constants.url.github),
         ),
         CommonItemSocial(
           icon: Assets.icGmail,
-          onTap: () => _launchUrl(Constants.url.gmail),
+          onTap: () => Utils.launchUrl(Constants.url.gmail),
         ),
         CommonItemSocial(
           icon: Assets.icFacebook,
-          onTap: () => _launchUrl(Constants.url.facebook),
+          onTap: () => Utils.launchUrl(Constants.url.facebook),
         ),
         CommonItemSocial(
           icon: Assets.icInstagram,
-          onTap: () => _launchUrl(Constants.url.instagram),
+          onTap: () => Utils.launchUrl(Constants.url.instagram),
         ),
       ],
     );
-  }
-
-  Future<void> _launchUrl(String url) async {
-    if (await canLaunchUrlString(url)) {
-      await launchUrlString(url);
-    }
   }
 }

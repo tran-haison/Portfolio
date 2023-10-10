@@ -32,6 +32,7 @@ class Assets {
 
   // Icon paths
   static const icHome = '$folderIcons/ic_home.png';
+  static const icExternalLink = '$folderIcons/ic_external_link.png';
   static const icBadminton = '$folderIcons/ic_badminton.png';
   static const icGames = '$folderIcons/ic_games.png';
   static const icGym = '$folderIcons/ic_gym.png';
