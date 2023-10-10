@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import 'common_text_styles.dart';
@@ -12,9 +13,11 @@ class CommonPageTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return AutoSizeText(
       title,
       style: CommonTextStyles.highlight,
+      maxLines: 1,
+      textAlign: TextAlign.center,
     );
   }
 }

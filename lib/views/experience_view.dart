@@ -185,12 +185,15 @@ class _ExperienceViewState extends State<ExperienceView> with BaseStateMixin {
   }
 
   Widget _buildHorizontalLine() {
-    return const SizedBox(
-      width: 300,
-      height: 1.5,
-      child: DecoratedBox(
-        decoration: BoxDecoration(color: Colors.white),
-      ),
-    );
+    return LayoutBuilder(builder: (_, constraints) {
+      final isMobile = constraints.maxWidth <= Constants.common.maxWidthMobile;
+      return SizedBox(
+        width: isMobile ? 200 : 300,
+        height: 1.5,
+        child: const DecoratedBox(
+          decoration: BoxDecoration(color: Colors.white),
+        ),
+      );
+    });
   }
 }

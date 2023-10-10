@@ -11,9 +11,12 @@ class Footer extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          Constants.text.copyRight,
-          style: CommonTextStyles.medium,
+        Flexible(
+          child: Text(
+            Constants.text.copyRight,
+            style: CommonTextStyles.medium,
+            textAlign: TextAlign.center,
+          ),
         ),
       ],
     );
