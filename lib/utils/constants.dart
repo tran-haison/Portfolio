@@ -191,4 +191,7 @@ class _Text {
   String get viettelWorks =>
       '• Studied basic concepts and fundamentals in Android development: Activity, Fragment, Service, Broadcast Receiver, Navigation, API handling, Local Storage, etc.\n'
       '• Cloned a to-do app and developed additional features such as bookmarking items, cloud data syncing and user authentication (Firebase).';
+
+  String get projectSelfDescription =>
+      'With a wealth of experience across numerous projects, I bring a proven track record of delivering successful and diverse applications.';
 }

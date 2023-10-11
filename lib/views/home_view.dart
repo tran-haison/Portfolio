@@ -138,7 +138,9 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
             backgroundColor: ColorsRes.brown2,
             iconData: Icons.build_circle_outlined,
             text: Constants.text.projects,
-            onTap: () {},
+            onTap: () {
+              context.go(Routers.projects);
+            },
           ),
           secondWidget: _buildItemContent(
             backgroundColor: ColorsRes.blue1,

@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/views/about_view.dart';
 import 'package:portfolio/views/experience_view.dart';
+import 'package:portfolio/views/projects_view.dart';
 
 import '../views/home_view.dart';
 
@@ -19,6 +20,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: Routers.experience,
       builder: (context, state) => const ExperienceView(),
+    ),
+    GoRoute(
+      path: Routers.projects,
+      builder: (context, state) => const ProjectsView(),
     ),
   ],
 );
