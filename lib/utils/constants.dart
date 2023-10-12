@@ -1,3 +1,5 @@
+import 'package:portfolio/res/assets.dart';
+
 class Constants {
   const Constants._();
 
@@ -10,6 +12,22 @@ class _Common {
   int get maxWidthMobile => 450;
 
   int get maxWidthTablet => 800;
+
+  double get screenRatioFullHdPortrait => 1080 / 1920;
+
+  List<String> get imagesProjectHrs => [
+        Assets.imgProjectHrs1,
+        Assets.imgProjectHrs2,
+        Assets.imgProjectHrs3,
+        Assets.imgProjectHrs4,
+      ];
+
+  List<String> get imagesProjectMathema => [
+        Assets.imgProjectMathema1,
+        Assets.imgProjectMathema2,
+        Assets.imgProjectMathema3,
+        Assets.imgProjectMathema4,
+      ];
 }
 
 class _Url {
@@ -30,6 +48,18 @@ class _Url {
   String get bkitCompany => 'https://bkitsoftware.com/';
 
   String get viettelCompany => 'https://viettelmedia.vn/';
+
+  String get hrsPlayStore =>
+      'https://play.google.com/store/apps/details?id=jp.co.hr_s.hisol.worker';
+
+  String get hrsAppStore =>
+      'https://apps.apple.com/jp/app/%E3%83%8F%E3%82%A4%E3%82%BD%E3%83%AB%E3%82%B7%E3%83%95%E3%83%88-%E5%BE%93%E6%A5%AD%E5%93%A1%E5%90%91%E3%81%91%E3%82%B7%E3%83%95%E3%83%88%E6%94%AF%E6%8F%B4%E3%82%A2%E3%83%97%E3%83%AA/id1615145781';
+
+  String get mathemaPlayStore =>
+      'https://play.google.com/store/apps/details?id=com.mathema.bookreader';
+
+  String get mathemaAppStore =>
+      'https://apps.apple.com/jp/app/mathema-ebook-reader/id6463588021';
 }
 
 class _Text {
@@ -194,4 +224,39 @@ class _Text {
 
   String get projectSelfDescription =>
       'With a wealth of experience across numerous projects, I bring a proven track record of delivering successful and diverse applications.';
+
+  String get features => 'Features';
+
+  String get getItOn => 'GET IT ON';
+
+  String get googlePlay => 'Google Play';
+
+  String get availableOnThe => 'AVAILABLE ON THE';
+
+  String get appStore => 'App Store';
+
+  String get hrsName => 'HRS Hisol Worker';
+
+  String get hrsCategory => 'HR Management';
+
+  String get hrsDescription =>
+      '• Manage and organize desired shifts, shift list and calendar of employees and staffs in companies and stores.';
+
+  String get hrsFeatures => '• Register/login with SNS and email.\n'
+      '• Check and submit shifts.\n'
+      '• Display shift list and shift calendar.\n'
+      '• Chat with admin and other staffs.\n'
+      '• Receive notification for shift request submissions and messages from stores, etc.';
+
+  String get mathemaName => 'Mathema Ebook Reader';
+
+  String get mathemaCategory => 'Book/Education';
+
+  String get mathemaDescription =>
+      '• Mathematics and Physics books for high school and college students.';
+
+  String get mathemaFeatures => '• Register/login with email.\n'
+      '• Online/offline learning with different book types: E-Book, P-Book and L-Book.\n'
+      '• Download and learn from E-Book with handy features.\n'
+      '• Learn from L-Book with videos and detailed explanations.';
 }

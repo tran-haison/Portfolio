@@ -29,6 +29,15 @@ class Assets {
   static const imgAuth0 = '$folderImages/img_auth0.png';
   static const imgMySql = '$folderImages/img_mysql.png';
   static const imgPostgresql = '$folderImages/img_postgresql.png';
+  static const imgPlayStore = '$folderImages/img_playstore.png';
+  static const imgProjectHrs1 = '$folderImages/img_project_hrs_1.png';
+  static const imgProjectHrs2 = '$folderImages/img_project_hrs_2.png';
+  static const imgProjectHrs3 = '$folderImages/img_project_hrs_3.png';
+  static const imgProjectHrs4 = '$folderImages/img_project_hrs_4.png';
+  static const imgProjectMathema1 = '$folderImages/img_project_mathema_1.png';
+  static const imgProjectMathema2 = '$folderImages/img_project_mathema_2.png';
+  static const imgProjectMathema3 = '$folderImages/img_project_mathema_3.png';
+  static const imgProjectMathema4 = '$folderImages/img_project_mathema_4.png';
 
   // Icon paths
   static const icHome = '$folderIcons/ic_home.png';
