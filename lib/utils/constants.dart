@@ -15,6 +15,10 @@ class _Common {
 
   double get screenRatioFullHdPortrait => 1080 / 1920;
 
+  double get screenRatio16_9 => 16 / 9;
+
+  double get screenRatio4_3 => 4 / 3;
+
   List<String> get imagesProjectHrs => [
         Assets.imgProjectHrs1,
         Assets.imgProjectHrs2,

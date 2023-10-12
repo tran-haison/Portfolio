@@ -39,6 +39,7 @@ class _LifeViewState extends State<LifeView> with BaseStateMixin {
                     Gaps.vGap50,
                     _buildSectionInterest(),
                     Gaps.vGap100,
+                    _buildSectionDeskSetup(),
                   ],
                 ),
               ),
@@ -140,6 +141,112 @@ class _LifeViewState extends State<LifeView> with BaseStateMixin {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildSectionDeskSetup() {
+    return Row(
+      children: [
+        Flexible(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                'My desk setup',
+                style: CommonTextStyles.title,
+                textAlign: TextAlign.end,
+              ),
+              Gaps.vGap5,
+              Text(
+                'I love this setup in my little corner.\nI usually buy nonsense things and take pictures of them.',
+                style: CommonTextStyles.medium.copyWith(
+                  color: ColorsRes.textGray,
+                ),
+                textAlign: TextAlign.end,
+              ),
+            ],
+          ),
+        ),
+        Gaps.hGap50,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Flexible(
+                    child: AspectRatio(
+                      aspectRatio: Constants.common.screenRatio4_3,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          maxHeight: 300,
+                        ),
+                        child: const CommonAssetImage(
+                          image: Assets.imgDeskSetup1,
+                          radius: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Gaps.hGap20,
+                  Flexible(
+                    child: AspectRatio(
+                      aspectRatio: Constants.common.screenRatio16_9,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          maxHeight: 300,
+                        ),
+                        child: const CommonAssetImage(
+                          image: Assets.imgDeskSetup2,
+                          radius: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Gaps.vGap20,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Flexible(
+                    child: AspectRatio(
+                      aspectRatio: Constants.common.screenRatio16_9,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          maxHeight: 300,
+                        ),
+                        child: const CommonAssetImage(
+                          image: Assets.imgDeskSetup3,
+                          radius: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Gaps.hGap20,
+                  Flexible(
+                    child: AspectRatio(
+                      aspectRatio: Constants.common.screenRatio4_3,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          maxHeight: 300,
+                        ),
+                        child: const CommonAssetImage(
+                          image: Assets.imgDeskSetup4,
+                          radius: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

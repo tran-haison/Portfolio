@@ -38,6 +38,10 @@ class Assets {
   static const imgProjectMathema2 = '$folderImages/img_project_mathema_2.png';
   static const imgProjectMathema3 = '$folderImages/img_project_mathema_3.png';
   static const imgProjectMathema4 = '$folderImages/img_project_mathema_4.png';
+  static const imgDeskSetup1 = '$folderImages/img_desk_setup_1.jpeg';
+  static const imgDeskSetup2 = '$folderImages/img_desk_setup_2.jpeg';
+  static const imgDeskSetup3 = '$folderImages/img_desk_setup_3.jpeg';
+  static const imgDeskSetup4 = '$folderImages/img_desk_setup_4.jpeg';
 
   // Icon paths
   static const icHome = '$folderIcons/ic_home.png';
