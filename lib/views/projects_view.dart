@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/common/base_state_mixin.dart';
 import 'package:portfolio/res/colors.dart';
@@ -38,8 +37,6 @@ class _ProjectsViewState extends State<ProjectsView> with BaseStateMixin {
                   children: [
                     CommonPageTitle(title: Constants.text.projects),
                     Gaps.vGap100,
-                    _buildTextSelfDescription(),
-                    Gaps.vGap100,
                     _buildItemProject(
                       number: Constants.text.number01,
                       name: Constants.text.hrsName,
@@ -70,15 +67,6 @@ class _ProjectsViewState extends State<ProjectsView> with BaseStateMixin {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildTextSelfDescription() {
-    return AutoSizeText(
-      Constants.text.projectSelfDescription,
-      style: CommonTextStyles.header,
-      maxLines: 3,
-      textAlign: TextAlign.center,
     );
   }
 
@@ -126,21 +114,23 @@ class _ProjectsViewState extends State<ProjectsView> with BaseStateMixin {
               ),
             ),
             Gaps.hGap30,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  name,
-                  style: CommonTextStyles.headerBold,
-                ),
-                Text(
-                  category,
-                  style: CommonTextStyles.medium.copyWith(
-                    color: ColorsRes.textGray,
+            Flexible(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    name,
+                    style: CommonTextStyles.headerBold,
                   ),
-                ),
-              ],
+                  Text(
+                    category,
+                    style: CommonTextStyles.medium.copyWith(
+                      color: ColorsRes.textGray,
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         ),
@@ -160,6 +150,7 @@ class _ProjectsViewState extends State<ProjectsView> with BaseStateMixin {
                 description,
                 style: CommonTextStyles.normal.copyWith(
                   color: ColorsRes.textGray,
+                  height: 2,
                 ),
               ),
               Gaps.vGap30,

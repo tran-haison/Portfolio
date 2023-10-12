@@ -36,9 +36,9 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
                 children: [
                   _buildIntro(),
                   Gaps.vGap100,
-                  _buildContent(),
+                  _buildSectionMainInfo(),
                   Gaps.vGap100,
-                  _buildContact(),
+                  _buildSectionMailInputForm(),
                   Gaps.vGap100,
                   const Footer(),
                 ],
@@ -104,7 +104,7 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildSectionMainInfo() {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -145,8 +145,10 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
           secondWidget: _buildItemContent(
             backgroundColor: ColorsRes.blue1,
             iconData: Icons.ac_unit,
-            text: Constants.text.contact,
-            onTap: () {},
+            text: Constants.text.life,
+            onTap: () {
+              context.go(Routers.life);
+            },
           ),
         ),
       ],
@@ -202,7 +204,7 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
     );
   }
 
-  Widget _buildContact() {
+  Widget _buildSectionMailInputForm() {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

@@ -75,6 +75,8 @@ class _Text {
 
   String get contact => 'Contact';
 
+  String get life => 'Life';
+
   String get hi => 'Hi!';
 
   String get haiSonTran1 => 'I\'m Hai Son Tran.';
@@ -168,6 +170,12 @@ class _Text {
   String get travelling => 'Travelling';
 
   String get letConnect => 'Let\'s connect.';
+
+  String get pageDoesNotExist => 'Sorry! The page you accessed does not exist';
+
+  String get pageNotFound => '404 ~ Page not found';
+
+  String get returnHome => 'Return home';
 
   String get longDescription =>
       'I\'m a Mobile Engineer with years of hands-on experience in designing, developing, and optimizing mobile applications.\n\n'

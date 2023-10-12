@@ -74,10 +74,6 @@ class _AboutViewState extends State<AboutView>
                     Gaps.vGap50,
                     _buildSectionTechnologyUsed(),
                     Gaps.vGap100,
-                    _buildSectionTitle(Constants.text.myInterests),
-                    Gaps.vGap50,
-                    _buildSectionInterest(),
-                    Gaps.vGap100,
                     _buildSectionTitle(Constants.text.letConnect),
                     Gaps.vGap50,
                     _buildSectionSocial(),
@@ -420,86 +416,6 @@ class _AboutViewState extends State<AboutView>
             children: [
               ...imageWidgets,
             ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSectionInterest() {
-    return Wrap(
-      spacing: 15,
-      runSpacing: 15,
-      children: [
-        _buildItemInterest(
-          text: Constants.text.gym,
-          icon: Assets.icGym,
-        ),
-        _buildItemInterest(
-          text: Constants.text.soccer,
-          icon: Assets.icSoccer,
-        ),
-        _buildItemInterest(
-          text: Constants.text.running,
-          icon: Assets.icRunning,
-        ),
-        _buildItemInterest(
-          text: Constants.text.badminton,
-          icon: Assets.icBadminton,
-        ),
-        _buildItemInterest(
-          text: Constants.text.games,
-          icon: Assets.icGames,
-        ),
-        _buildItemInterest(
-          text: Constants.text.deskSetup,
-          icon: Assets.icDeskSetup,
-        ),
-        _buildItemInterest(
-          text: Constants.text.menFashion,
-          icon: Assets.icFashion,
-        ),
-        _buildItemInterest(
-          text: Constants.text.sneakers,
-          icon: Assets.icSneakers,
-        ),
-        _buildItemInterest(
-          text: Constants.text.music,
-          icon: Assets.icMusic,
-        ),
-        _buildItemInterest(
-          text: Constants.text.travelling,
-          icon: Assets.icTravelling,
-        ),
-      ],
-    );
-  }
-
-  Widget _buildItemInterest({
-    required String text,
-    required String icon,
-  }) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        color: ColorsRes.green3.withOpacity(0.2),
-      ),
-      padding: const EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 20,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CommonAssetImage(
-            image: icon,
-            width: 25,
-            height: 25,
-          ),
-          Gaps.hGap10,
-          Text(
-            text,
-            style: CommonTextStyles.normal,
           ),
         ],
       ),

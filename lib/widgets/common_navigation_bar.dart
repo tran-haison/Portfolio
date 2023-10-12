@@ -34,7 +34,7 @@ class CommonNavigationBar extends StatelessWidget {
                 _buildNavigationItem(Constants.text.about),
                 _buildNavigationItem(Constants.text.experience),
                 _buildNavigationItem(Constants.text.projects),
-                _buildNavigationItem(Constants.text.contact),
+                _buildNavigationItem(Constants.text.life),
                 _buildButtonResume(),
               ],
             ),
