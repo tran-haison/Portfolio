@@ -17,6 +17,8 @@ class _Common {
 
   double get screenRatio16_9 => 16 / 9;
 
+  double get screenRatio9_16 => 9 / 16;
+
   double get screenRatio4_3 => 4 / 3;
 
   List<String> get imagesProjectHrs => [
@@ -31,6 +33,36 @@ class _Common {
         Assets.imgProjectMathema2,
         Assets.imgProjectMathema3,
         Assets.imgProjectMathema4,
+      ];
+
+  List<String> get imagesTravelPlaces => [
+        Assets.imgTravelDaNang,
+        Assets.imgTravelHaLong,
+        Assets.imgTravelHanoi,
+        Assets.imgTravelHoChiMinh,
+        Assets.imgTravelHoiAn,
+        Assets.imgTravelHue,
+        Assets.imgTravelMuiNe,
+        Assets.imgTravelNhaTrang,
+        Assets.imgTravelPhuQuoc,
+        Assets.imgTravelQuangBinh,
+        Assets.imgTravelQuyNhon,
+        Assets.imgTravelSapa,
+      ];
+
+  List<String> get textsTravelPlaces => [
+        'Da Nang',
+        'Ha Long',
+        'Hanoi',
+        'Ho Chi Minh',
+        'Hoi An',
+        'Hue',
+        'Mui Ne',
+        'Nha Trang',
+        'Phu Quoc',
+        'Quang Binh',
+        'Quy Nhon',
+        'Sa Pa',
       ];
 }
 
@@ -171,7 +203,7 @@ class _Text {
 
   String get music => 'Music';
 
-  String get travelling => 'Travelling';
+  String get traveling => 'Traveling';
 
   String get letConnect => 'Let\'s connect.';
 
@@ -271,4 +303,30 @@ class _Text {
       '• Online/offline learning with different book types: E-Book, P-Book and L-Book.\n'
       '• Download and learn from E-Book with handy features.\n'
       '• Learn from L-Book with videos and detailed explanations.';
+
+  String get lifeDescription =>
+      'Beyond coding, I have a diverse range of hobbies and interests that fuel my creativity and keep me well-rounded.';
+
+  String get deskSetupDescription =>
+      '• I built my own desk setup in my little corner.\n'
+      '• I used to play PC games a lot but now switch to console games.\n'
+      '• I usually buy nonsense things and take pictures of them.';
+
+  String get sportTitle => 'I am a big fan of sports';
+
+  String get sportDescription =>
+      '• I can play multiple sports and it is not so bad.\n'
+      '• I play soccer twice a week, and watch Premier League every weekends.\n'
+      '• I go to the gym 3-4 times per week.\n'
+      '• Sometimes I run, but long time no play badminton.';
+
+  String get travel => 'Travel';
+
+  String get travelDescription =>
+      '• Traveling is one of my greatest passions, allowing me to explore new cultures, gain fresh perspectives, and create unforgettable memories.\n'
+      '• Exploring different parts of the world not only broadens my horizons but also inspires me with a sense of adventure and wonder.';
+
+  String get menFashionDescription =>
+      '• I have a genuine passion for men\'s fashion. I take great pleasure in staying updated with the latest trends and styles.\n'
+      '• I watch Youtube and social medias to follow and copy-paste others style.';
 }

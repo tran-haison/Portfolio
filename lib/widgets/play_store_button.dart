@@ -39,10 +39,10 @@ class PlayStoreButton extends StatelessWidget {
           children: [
             const CommonAssetImage(
               image: Assets.imgPlayStore,
-              width: 40,
-              height: 40,
+              width: 35,
+              height: 35,
             ),
-            Gaps.hGap20,
+            Gaps.hGap15,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -51,11 +51,15 @@ class PlayStoreButton extends StatelessWidget {
                   Constants.text.getItOn,
                   style: CommonTextStyles.small.copyWith(
                     color: ColorsRes.textGray,
+                    height: 1,
                   ),
                 ),
+                Gaps.vGap4,
                 Text(
                   Constants.text.googlePlay,
-                  style: CommonTextStyles.header,
+                  style: CommonTextStyles.header.copyWith(
+                    height: 1,
+                  ),
                 ),
               ],
             ),

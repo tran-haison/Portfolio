@@ -42,6 +42,22 @@ class Assets {
   static const imgDeskSetup2 = '$folderImages/img_desk_setup_2.jpeg';
   static const imgDeskSetup3 = '$folderImages/img_desk_setup_3.jpeg';
   static const imgDeskSetup4 = '$folderImages/img_desk_setup_4.jpeg';
+  static const imgSportSoccer = '$folderImages/img_sport_soccer.jpeg';
+  static const imgSportBadminton = '$folderImages/img_sport_badminton.jpeg';
+  static const imgSportGym = '$folderImages/img_sport_gym.jpeg';
+  static const imgSportRunning = '$folderImages/img_sport_running.jpeg';
+  static const imgTravelDaNang = '$folderImages/img_travel_danang.jpeg';
+  static const imgTravelHaLong = '$folderImages/img_travel_halong.jpeg';
+  static const imgTravelHanoi = '$folderImages/img_travel_hanoi.jpeg';
+  static const imgTravelHoChiMinh = '$folderImages/img_travel_hochiminh.jpeg';
+  static const imgTravelHoiAn = '$folderImages/img_travel_hoian.jpeg';
+  static const imgTravelHue = '$folderImages/img_travel_hue.jpeg';
+  static const imgTravelMuiNe = '$folderImages/img_travel_muine.jpeg';
+  static const imgTravelNhaTrang = '$folderImages/img_travel_nhatrang.jpeg';
+  static const imgTravelPhuQuoc = '$folderImages/img_travel_phuquoc.jpeg';
+  static const imgTravelQuangBinh = '$folderImages/img_travel_quangbinh.jpeg';
+  static const imgTravelQuyNhon = '$folderImages/img_travel_quynhon.jpeg';
+  static const imgTravelSapa = '$folderImages/img_travel_sapa.jpeg';
 
   // Icon paths
   static const icHome = '$folderIcons/ic_home.png';
