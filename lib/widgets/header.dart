@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../config/router/routers.dart';
 import '../res/assets.dart';
-import '../router/routers.dart';
 import 'common_images.dart';
 
 class Header extends StatelessWidget {

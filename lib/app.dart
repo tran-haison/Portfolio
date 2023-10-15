@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/breakpoint.dart';
 import 'package:responsive_framework/responsive_breakpoints.dart';
 
+import 'config/router/routers.dart';
 import 'res/themes.dart';
-import 'router/routers.dart';
 import 'utils/constants.dart';
 
 class App extends StatelessWidget {

@@ -1,11 +1,10 @@
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/views/about_view.dart';
 import 'package:portfolio/views/experience_view.dart';
+import 'package:portfolio/views/home_view.dart';
 import 'package:portfolio/views/life_view.dart';
 import 'package:portfolio/views/page_not_found_view.dart';
 import 'package:portfolio/views/projects_view.dart';
-
-import '../views/home_view.dart';
 
 // GoRouter configuration
 final appRouter = GoRouter(

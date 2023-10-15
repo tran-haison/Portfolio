@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/common/base_state_mixin.dart';
+import 'package:portfolio/config/di/app_module.dart';
+import 'package:portfolio/config/router/routers.dart';
+import 'package:portfolio/data/email_controller.dart';
 import 'package:portfolio/res/assets.dart';
-import 'package:portfolio/router/routers.dart';
 import 'package:portfolio/widgets/common_button.dart';
 import 'package:portfolio/widgets/common_images.dart';
 import 'package:portfolio/widgets/common_item_tech_stack.dart';
@@ -24,6 +26,13 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> with BaseStateMixin {
+  final _controller = getIt<EmailController>();
+
+  final _emailController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _subjectController = TextEditingController();
+  final _messageController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -224,9 +233,11 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
                 runSpacing: 30,
                 children: [
                   CommonTextField(
+                    controller: _nameController,
                     hintText: Constants.text.name,
                   ),
                   CommonTextField(
+                    controller: _emailController,
                     hintText: Constants.text.email,
                   ),
                 ],
@@ -236,12 +247,14 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
                 children: [
                   Expanded(
                     child: CommonTextField(
+                      controller: _nameController,
                       hintText: Constants.text.name,
                     ),
                   ),
                   Gaps.hGap30,
                   Expanded(
                     child: CommonTextField(
+                      controller: _emailController,
                       hintText: Constants.text.email,
                     ),
                   ),
@@ -252,10 +265,12 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
         ),
         Gaps.vGap30,
         CommonTextField(
+          controller: _subjectController,
           hintText: Constants.text.subject,
         ),
         Gaps.vGap30,
         CommonTextField(
+          controller: _messageController,
           hintText: Constants.text.message,
           height: 300,
           expands: true,
@@ -264,7 +279,7 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
         SizedBox(
           width: double.maxFinite,
           child: CommonButton(
-            onPressed: () {},
+            onPressed: _sendEmail,
             title: Constants.text.send,
             textStyle: CommonTextStyles.medium,
             padding: const EdgeInsets.all(30),
@@ -328,4 +343,29 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
       ),
     );
   }
+
+  Future<void> _sendEmail() async {
+    // await _controller.sendEmail(
+    //   email: _email,
+    //   name: _name,
+    //   subject: _subject,
+    //   message: _message,
+    // );
+    _clearText();
+  }
+
+  void _clearText() {
+    _emailController.clear();
+    _nameController.clear();
+    _subjectController.clear();
+    _messageController.clear();
+  }
+
+  String get _email => _emailController.text;
+
+  String get _name => _nameController.text;
+
+  String get _subject => _subjectController.text;
+
+  String get _message => _messageController.text;
 }
