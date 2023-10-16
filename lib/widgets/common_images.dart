@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CommonAssetImage extends StatelessWidget {
+class CommonAssetImage extends StatefulWidget {
   const CommonAssetImage({
     super.key,
     required this.image,
@@ -11,6 +11,7 @@ class CommonAssetImage extends StatelessWidget {
     this.radius,
     this.backgroundColor,
     this.padding,
+    this.needPrecache = true,
   });
 
   final String image;
@@ -21,24 +22,51 @@ class CommonAssetImage extends StatelessWidget {
   final double? radius;
   final Color? backgroundColor;
   final EdgeInsets? padding;
+  final bool needPrecache;
+
+  @override
+  State<CommonAssetImage> createState() => _CommonAssetImageState();
+}
+
+class _CommonAssetImageState extends State<CommonAssetImage> {
+  var isImagePrecached = false;
+
+  late final Image imageWidget;
+
+  @override
+  void initState() {
+    super.initState();
+
+    imageWidget = Image.asset(
+      widget.image,
+      color: widget.color,
+      fit: widget.fit,
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (!isImagePrecached && widget.needPrecache) {
+      precacheImage(imageWidget.image, context);
+      isImagePrecached = true;
+    }
+
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height,
-      width: width,
+      height: widget.height,
+      width: widget.width,
       decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(radius ?? 0),
+        color: widget.backgroundColor,
+        borderRadius: BorderRadius.circular(widget.radius ?? 0),
       ),
-      padding: padding,
+      padding: widget.padding,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(radius ?? 0),
-        child: Image.asset(
-          image,
-          color: color,
-          fit: fit,
-        ),
+        borderRadius: BorderRadius.circular(widget.radius ?? 0),
+        child: imageWidget,
       ),
     );
   }

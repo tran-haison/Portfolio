@@ -21,6 +21,67 @@ class LifeView extends StatefulWidget {
 }
 
 class _LifeViewState extends State<LifeView> with BaseStateMixin {
+  late final Widget image1;
+  late final Widget image2;
+  late final Widget image3;
+  late final Widget image4;
+  late final Widget image5;
+  late final Widget image6;
+  late final Widget image7;
+  late final Widget image8;
+
+  @override
+  void initState() {
+    super.initState();
+
+    image1 = AspectRatio(
+      aspectRatio: Constants.common.screenRatio4_3,
+      child: const CommonAssetImage(
+        image: Assets.imgDeskSetup1,
+        radius: 10,
+        fit: BoxFit.cover,
+      ),
+    );
+    image2 = AspectRatio(
+      aspectRatio: Constants.common.screenRatio4_3,
+      child: const CommonAssetImage(
+        image: Assets.imgTravelDaNang,
+        radius: 10,
+        fit: BoxFit.cover,
+      ),
+    );
+    image3 = const CommonAssetImage(
+      image: Assets.imgTravelHanoi,
+      radius: 10,
+      fit: BoxFit.fill,
+    );
+    image4 = const CommonAssetImage(
+      image: Assets.imgTravelHue,
+      radius: 10,
+      fit: BoxFit.fill,
+    );
+    image5 = const CommonAssetImage(
+      image: Assets.imgTravelHoiAn,
+      radius: 10,
+      fit: BoxFit.fill,
+    );
+    image6 = const CommonAssetImage(
+      image: Assets.imgTravelHoChiMinh,
+      radius: 10,
+      fit: BoxFit.fill,
+    );
+    image7 = const CommonAssetImage(
+      image: Assets.imgSportSoccer,
+      fit: BoxFit.fill,
+      radius: 10,
+    );
+    image8 = const CommonAssetImage(
+      image: Assets.imgTravelQuangBinh,
+      fit: BoxFit.fill,
+      radius: 10,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -256,53 +317,6 @@ class _LifeViewState extends State<LifeView> with BaseStateMixin {
     return LayoutBuilder(builder: (_, constraints) {
       final isDesktop = constraints.maxWidth > Constants.common.maxWidthTablet;
 
-      final image1 = AspectRatio(
-        aspectRatio: Constants.common.screenRatio4_3,
-        child: const CommonAssetImage(
-          image: Assets.imgDeskSetup1,
-          radius: 10,
-          fit: BoxFit.cover,
-        ),
-      );
-      final image2 = AspectRatio(
-        aspectRatio: Constants.common.screenRatio4_3,
-        child: const CommonAssetImage(
-          image: Assets.imgTravelDaNang,
-          radius: 10,
-          fit: BoxFit.cover,
-        ),
-      );
-      const image3 = CommonAssetImage(
-        image: Assets.imgTravelHanoi,
-        radius: 10,
-        fit: BoxFit.fill,
-      );
-      const image4 = CommonAssetImage(
-        image: Assets.imgTravelHue,
-        radius: 10,
-        fit: BoxFit.fill,
-      );
-      const image5 = CommonAssetImage(
-        image: Assets.imgTravelHoiAn,
-        radius: 10,
-        fit: BoxFit.fill,
-      );
-      const image6 = CommonAssetImage(
-        image: Assets.imgTravelHoChiMinh,
-        radius: 10,
-        fit: BoxFit.fill,
-      );
-      const image7 = CommonAssetImage(
-        image: Assets.imgSportSoccer,
-        fit: BoxFit.fill,
-        radius: 10,
-      );
-      const image8 = CommonAssetImage(
-        image: Assets.imgTravelQuangBinh,
-        fit: BoxFit.fill,
-        radius: 10,
-      );
-
       if (isDesktop) {
         return Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -337,7 +351,7 @@ class _LifeViewState extends State<LifeView> with BaseStateMixin {
                                   constraints: const BoxConstraints(
                                     maxHeight: 80,
                                   ),
-                                  child: const Row(
+                                  child: Row(
                                     children: [
                                       Expanded(
                                         child: image3,
@@ -354,7 +368,7 @@ class _LifeViewState extends State<LifeView> with BaseStateMixin {
                                   constraints: const BoxConstraints(
                                     maxHeight: 80,
                                   ),
-                                  child: const Row(
+                                  child: Row(
                                     children: [
                                       Expanded(
                                         child: image5,
@@ -375,7 +389,7 @@ class _LifeViewState extends State<LifeView> with BaseStateMixin {
                     Gaps.vGap20,
                     ConstrainedBox(
                       constraints: const BoxConstraints(maxHeight: 200),
-                      child: const Row(
+                      child: Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           image7,
@@ -446,7 +460,7 @@ class _LifeViewState extends State<LifeView> with BaseStateMixin {
                   ),
                 ),
                 Gaps.hGap20,
-                const Expanded(
+                Expanded(
                   flex: 3,
                   child: image8,
                 ),
