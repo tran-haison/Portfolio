@@ -173,7 +173,7 @@ class _AboutViewState extends State<AboutView>
 
   Widget _buildSectionOtherInfo() {
     return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: 700),
+      constraints: const BoxConstraints(maxWidth: 800),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

@@ -59,6 +59,16 @@ class _ProjectsViewState extends State<ProjectsView> with BaseStateMixin {
                       images: Constants.common.imagesProjectMathema,
                     ),
                     Gaps.vGap100,
+                    _buildItemProject(
+                      number: Constants.text.number03,
+                      name: Constants.text.tvCastName,
+                      category: Constants.text.tvCastCategory,
+                      description: Constants.text.tvCastDescription,
+                      features: Constants.text.tvCastFeatures,
+                      playStoreUrl: Constants.url.tvCastPlayStore,
+                      images: Constants.common.imagesProjectTvCast,
+                    ),
+                    Gaps.vGap100,
                     const Footer(),
                   ],
                 ),
@@ -76,8 +86,8 @@ class _ProjectsViewState extends State<ProjectsView> with BaseStateMixin {
     required String category,
     required String description,
     required String features,
-    required String playStoreUrl,
-    required String appStoreUrl,
+    String? playStoreUrl,
+    String? appStoreUrl,
     required List<String> images,
   }) {
     final imageWidgets = images.map((image) {
@@ -183,8 +193,8 @@ class _ProjectsViewState extends State<ProjectsView> with BaseStateMixin {
           runAlignment: WrapAlignment.center,
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
-            PlayStoreButton(url: playStoreUrl),
-            AppStoreButton(url: appStoreUrl),
+            if (playStoreUrl != null) PlayStoreButton(url: playStoreUrl),
+            if (appStoreUrl != null) AppStoreButton(url: appStoreUrl),
           ],
         ),
       ],

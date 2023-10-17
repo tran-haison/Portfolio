@@ -35,6 +35,13 @@ class _Common {
         Assets.imgProjectMathema4,
       ];
 
+  List<String> get imagesProjectTvCast => [
+        Assets.imgProjectTvCast1,
+        Assets.imgProjectTvCast2,
+        Assets.imgProjectTvCast3,
+        Assets.imgProjectTvCast4,
+      ];
+
   List<String> get imagesTravelPlaces => [
         Assets.imgTravelDaNang,
         Assets.imgTravelHaLong,
@@ -96,6 +103,9 @@ class _Url {
 
   String get mathemaAppStore =>
       'https://apps.apple.com/jp/app/mathema-ebook-reader/id6463588021';
+
+  String get tvCastPlayStore =>
+      'https://play.google.com/store/apps/details?id=com.tvcastapp.screenmirroring';
 }
 
 class _Text {
@@ -303,6 +313,18 @@ class _Text {
       '• Online/offline learning with different book types: E-Book, P-Book and L-Book.\n'
       '• Download and learn from E-Book with handy features.\n'
       '• Learn from L-Book with videos and detailed explanations.';
+
+  String get tvCastName => 'Screen Mirroring ~ Cast to TV';
+
+  String get tvCastCategory => 'Tools/Utilities';
+
+  String get tvCastDescription =>
+      '• Cast for Chromecast & TV Cast helps you connect your phone to TV fastly and simply. One tap to cast everything to your TV.';
+
+  String get tvCastFeatures =>
+      '• Support multiple devices: phones, tablets and TVs.\n'
+      '• Support all casting technology: Screen Mirroring, Miracast, Chromecast, DLNA, etc.\n'
+      '• Mirror screen with high quality. Allow play video, music, photo, game, online learning, etc.';
 
   String get lifeDescription =>
       'Beyond coding, I have a diverse range of hobbies and interests that fuel my creativity and keep me well-rounded.';
