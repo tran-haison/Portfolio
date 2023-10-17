@@ -214,9 +214,9 @@ class _Text {
   String get returnHome => 'Return home';
 
   String get longDescription =>
-      'I\'m a Mobile Engineer with years of hands-on experience in designing, developing, and optimizing mobile applications.\n\n'
-      'Over the years, I\'ve honed my skills in both iOS and Android app development, leveraging languages such as Java, Kotlin, and Dart. I have a proven track record of collaborating with cross-functional teams to deliver innovative and robust mobile experiences that meet user needs and business objectives.\n\n'
-      'Let\'s connect and explore how I can contribute to your mobile development endeavors.';
+      '• I\'m a Mobile Engineer with years of hands-on experience in designing, developing, and optimizing mobile applications.\n'
+      '• Over the years, I\'ve honed my skills in both iOS and Android app development, leveraging languages such as Java, Kotlin, and Dart. I have a proven track record of collaborating with cross-functional teams to deliver innovative and robust mobile experiences that meet user needs and business objectives.\n'
+      '• Let\'s connect and explore how I can contribute to your mobile development endeavors.';
 
   String get tdaDuration => '03/2022 - Present';
 
@@ -307,9 +307,12 @@ class _Text {
   String get lifeDescription =>
       'Beyond coding, I have a diverse range of hobbies and interests that fuel my creativity and keep me well-rounded.';
 
-  String get deskSetupDescription =>
+  String get techStuffs => 'Tech stuffs';
+
+  String get techStuffsDescription =>
       '• I built my own desk setup in my little corner.\n'
       '• I used to play PC games a lot but now switch to console games.\n'
+      '• I love collecting headphones, speakers, and sound related items.\n'
       '• I usually buy nonsense things and take pictures of them.';
 
   String get sportTitle => 'I am a big fan of sports';
@@ -318,7 +321,7 @@ class _Text {
       '• I can play multiple sports and it is not so bad.\n'
       '• I play soccer twice a week, and watch Premier League every weekends.\n'
       '• I go to the gym 3-4 times per week.\n'
-      '• Sometimes I run, but long time no play badminton.';
+      '• Sometimes I run, and long time no play badminton.';
 
   String get travel => 'Travel';
 
@@ -329,4 +332,15 @@ class _Text {
   String get menFashionDescription =>
       '• I have a genuine passion for men\'s fashion. I take great pleasure in staying updated with the latest trends and styles.\n'
       '• I watch Youtube and social medias to follow and copy-paste others style.';
+
+  String get education => 'Education';
+
+  String get hust => '• Hanoi University of Science and Technology (HUST)\n'
+      '\t\t~ Bachelor Degree in Information Technology';
+
+  String get certificates => 'Certificates';
+
+  String get certificateAgileExplorer => '• Agile Explorer by IBM';
+
+  String get certificateIelts => '• IELTS 7.0';
 }

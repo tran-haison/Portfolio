@@ -213,8 +213,8 @@ class _LifeViewState extends State<LifeView> with BaseStateMixin {
 
       final hobby1 = _buildItemHobby(
         number: Constants.text.number01,
-        title: Constants.text.deskSetup,
-        description: Constants.text.deskSetupDescription,
+        title: Constants.text.techStuffs,
+        description: Constants.text.techStuffsDescription,
       );
       final hobby2 = _buildItemHobby(
         number: Constants.text.number02,

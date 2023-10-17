@@ -63,8 +63,8 @@ class _AboutViewState extends State<AboutView>
                     CommonPageTitle(title: Constants.text.about),
                     Gaps.vGap100,
                     _buildSectionBasicInfo(),
-                    Gaps.vGap100,
-                    _buildSectionDescription(),
+                    Gaps.vGap50,
+                    _buildSectionOtherInfo(),
                     Gaps.vGap100,
                     _buildSectionTitle(Constants.text.whatIDo),
                     Gaps.vGap100,
@@ -87,31 +87,6 @@ class _AboutViewState extends State<AboutView>
         ),
       ),
     );
-  }
-
-  Widget _buildSectionDescription() {
-    return LayoutBuilder(builder: (_, constraints) {
-      final isMobile = constraints.maxWidth <= Constants.common.maxWidthMobile;
-      return ConstrainedBox(
-        constraints: const BoxConstraints(
-          maxWidth: 800,
-        ),
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-            vertical: 30,
-            horizontal: 40,
-          ),
-          decoration: BoxDecoration(
-            color: ColorsRes.green3.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Text(
-            Constants.text.longDescription,
-            style: isMobile ? CommonTextStyles.normal : CommonTextStyles.medium,
-          ),
-        ),
-      );
-    });
   }
 
   Widget _buildSectionBasicInfo() {
@@ -194,6 +169,47 @@ class _AboutViewState extends State<AboutView>
         );
       }
     });
+  }
+
+  Widget _buildSectionOtherInfo() {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 700),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _buildTextTitle(Constants.text.education),
+          Gaps.vGap10,
+          _buildTextContent(Constants.text.hust),
+          Gaps.vGap30,
+          _buildTextTitle(Constants.text.certificates),
+          Gaps.vGap10,
+          _buildTextContent(Constants.text.certificateAgileExplorer),
+          _buildTextContent(Constants.text.certificateIelts),
+          Gaps.vGap30,
+          _buildTextTitle(Constants.text.aLittleBitAboutMe),
+          Gaps.vGap10,
+          _buildTextContent(Constants.text.longDescription),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTextTitle(String title) {
+    return Text(
+      title,
+      style: CommonTextStyles.mediumBold,
+    );
+  }
+
+  Widget _buildTextContent(String content) {
+    return Text(
+      content,
+      style: CommonTextStyles.normal.copyWith(
+        color: ColorsRes.textGray,
+        height: 2,
+      ),
+    );
   }
 
   Widget _buildSectionTitle(String title) {
@@ -368,58 +384,74 @@ class _AboutViewState extends State<AboutView>
       ),
     );
 
-    return Container(
-      width: double.maxFinite,
-      padding: const EdgeInsets.all(30),
-      decoration: BoxDecoration(
-        color: ColorsRes.green3.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                number,
-                style: CommonTextStyles.highlight.copyWith(fontSize: 40),
-              ),
-              Gaps.hGap30,
-              Flexible(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      title,
-                      style: CommonTextStyles.title.copyWith(fontSize: 24),
+    return LayoutBuilder(builder: (_, constraints) {
+      final isMobile = constraints.maxWidth <= Constants.common.maxWidthMobile;
+
+      final textNumber = Text(
+        number,
+        style: CommonTextStyles.highlight.copyWith(fontSize: 40),
+      );
+      final textTitle = Text(
+        title,
+        style: CommonTextStyles.title.copyWith(fontSize: 24),
+      );
+      final textDescription = Text(
+        description,
+        style: CommonTextStyles.normal.copyWith(
+          color: ColorsRes.textGray,
+        ),
+      );
+
+      return Container(
+        width: double.maxFinite,
+        padding: const EdgeInsets.all(30),
+        decoration: BoxDecoration(
+          color: ColorsRes.green3.withOpacity(0.2),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (isMobile) ...[
+              textNumber,
+              Gaps.vGap30,
+              textTitle,
+              Gaps.vGap5,
+              textDescription,
+            ] else ...[
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  textNumber,
+                  Gaps.hGap30,
+                  Flexible(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        textTitle,
+                        Gaps.vGap5,
+                        textDescription,
+                      ],
                     ),
-                    Gaps.vGap5,
-                    Text(
-                      description,
-                      style: CommonTextStyles.normal.copyWith(
-                        color: ColorsRes.textGray,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
-          ),
-          Gaps.vGap30,
-          Wrap(
-            runSpacing: 10,
-            spacing: 10,
-            children: [
-              ...imageWidgets,
-            ],
-          ),
-        ],
-      ),
-    );
+            Gaps.vGap30,
+            Wrap(
+              runSpacing: 10,
+              spacing: 10,
+              children: [
+                ...imageWidgets,
+              ],
+            ),
+          ],
+        ),
+      );
+    });
   }
 
   Widget _buildSectionSocial() {
