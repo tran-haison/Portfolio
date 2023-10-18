@@ -358,7 +358,7 @@ class _Text {
   String get education => 'Education';
 
   String get hust => '• Hanoi University of Science and Technology (HUST)\n'
-      '\t\t~ Bachelor Degree in Information Technology';
+      '\t\t~ Bachelor of Engineering in Information Technology';
 
   String get certificates => 'Certificates';
 
