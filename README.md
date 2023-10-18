@@ -1,16 +1,40 @@
-# portfolio
-
+# Hai Son Tran ~ Portfolio
 Personal portfolio crafted by Flutter.
 
-## Getting Started
+## Setup
 
-This project is a starting point for a Flutter application.
+#### 1. Install Flutter
+- Flutter: `3.13.6`
+- Dart: `3.1.3`
+- Link: https://docs.flutter.dev/get-started/install
 
-A few resources to get you started if this is your first Flutter project:
+#### 2. Config dependencies
+```
+# Clean project
+flutter clean
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Get dependencies
+flutter pub get
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Pod install and update
+cd ios/
+pod install --repo-update
+```
+
+#### 3. Run in debug mode
+- Open `~/web/index.html` and change `<base href="https://tranhaison.xyz/">` to `<base href="/">`
+- Run command:
+```
+flutter run -d chrome
+```
+
+## Build and deploy web
+```
+# Build web in release mode
+flutter build web --release
+
+# Copy and overwrite all files from [build/web] to [docs]
+cp -a ~/build/web/. ~/docs/
+
+-> Commit code and push to deploy automatically on Github page 
+```
