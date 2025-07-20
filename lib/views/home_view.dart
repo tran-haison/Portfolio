@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/common/base_state_mixin.dart';
-import 'package:portfolio/config/di/app_module.dart';
 import 'package:portfolio/config/router/routers.dart';
-import 'package:portfolio/data/email_controller.dart';
 import 'package:portfolio/res/assets.dart';
 import 'package:portfolio/widgets/common_button.dart';
 import 'package:portfolio/widgets/common_images.dart';
@@ -26,8 +24,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> with BaseStateMixin {
-  final _controller = getIt<EmailController>();
-
   final _emailController = TextEditingController();
   final _nameController = TextEditingController();
   final _subjectController = TextEditingController();
@@ -345,6 +341,8 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
   }
 
   Future<void> _sendEmail() async {
+    // TODO_AI: Implement email sending functionality
+    // For now, we'll just clear the form
     // await _controller.sendEmail(
     //   email: _email,
     //   name: _name,
@@ -361,11 +359,9 @@ class _HomeViewState extends State<HomeView> with BaseStateMixin {
     _messageController.clear();
   }
 
-  String get _email => _emailController.text;
-
-  String get _name => _nameController.text;
-
-  String get _subject => _subjectController.text;
-
-  String get _message => _messageController.text;
+  // AI_FLAG: Removed unused getter methods as they're not being used
+  // String get _email => _emailController.text;
+  // String get _name => _nameController.text;
+  // String get _subject => _subjectController.text;
+  // String get _message => _messageController.text;
 }

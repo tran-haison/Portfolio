@@ -34,7 +34,7 @@ flutter run -d chrome
 flutter build web --release
 
 # Copy and overwrite all files from [build/web] to [docs]
-cp -a ~/build/web/. ~/docs/
+cp -r build/web/* docs/
 
 -> Commit code and push to deploy automatically on Github page 
 ```

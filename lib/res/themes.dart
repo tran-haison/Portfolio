@@ -20,8 +20,9 @@ class Themes {
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: Colors.white,
-        selectedItemColor: ColorsRes.contentLightTheme.withOpacity(0.7),
-        unselectedItemColor: ColorsRes.contentLightTheme.withOpacity(0.32),
+        selectedItemColor: ColorsRes.contentLightTheme.withValues(alpha: 0.7),
+        unselectedItemColor:
+            ColorsRes.contentLightTheme.withValues(alpha: 0.32),
         selectedIconTheme: const IconThemeData(color: ColorsRes.primary),
         showUnselectedLabels: true,
       ),

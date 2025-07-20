@@ -35,7 +35,7 @@ class _CommonItemSocialState extends State<CommonItemSocial> {
         height: 50,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: ColorsRes.green3.withOpacity(0.2),
+          color: ColorsRes.green3.withValues(alpha: 0.2),
         ),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 150),

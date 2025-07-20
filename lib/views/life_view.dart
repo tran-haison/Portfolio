@@ -183,7 +183,7 @@ class _LifeViewState extends State<LifeView> with BaseStateMixin {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: ColorsRes.green3.withOpacity(0.2),
+        color: ColorsRes.green3.withValues(alpha: 0.2),
       ),
       padding: const EdgeInsets.symmetric(
         vertical: 10,

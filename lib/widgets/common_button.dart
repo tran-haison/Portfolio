@@ -48,14 +48,14 @@ class CommonButton extends StatelessWidget {
               onPressed();
             },
       style: ButtonStyle(
-        elevation: MaterialStateProperty.resolveWith((states) => 0),
-        backgroundColor: MaterialStateProperty.resolveWith(
+        elevation: WidgetStateProperty.resolveWith((states) => 0),
+        backgroundColor: WidgetStateProperty.resolveWith(
           (states) => isDisable
               ? ColorsRes.textDisable
               : (backgroundColor ?? ColorsRes.primary),
         ),
-        padding: MaterialStateProperty.resolveWith((states) => padding),
-        shape: MaterialStateProperty.resolveWith(
+        padding: WidgetStateProperty.resolveWith((states) => padding),
+        shape: WidgetStateProperty.resolveWith(
           (states) => RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius),
             side: borderSide,

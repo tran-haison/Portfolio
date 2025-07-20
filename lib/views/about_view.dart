@@ -380,7 +380,7 @@ class _AboutViewState extends State<AboutView>
       (image) => CommonItemTechStack(
         image: image,
         padding: 10,
-        backgroundColor: ColorsRes.green2.withOpacity(0.5),
+        backgroundColor: ColorsRes.green2.withValues(alpha: 0.5),
       ),
     );
 
@@ -406,7 +406,7 @@ class _AboutViewState extends State<AboutView>
         width: double.maxFinite,
         padding: const EdgeInsets.all(30),
         decoration: BoxDecoration(
-          color: ColorsRes.green3.withOpacity(0.2),
+          color: ColorsRes.green3.withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(

@@ -113,7 +113,7 @@ class _ProjectsViewState extends State<ProjectsView> with BaseStateMixin {
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: ColorsRes.green3.withOpacity(0.2),
+                color: ColorsRes.green3.withValues(alpha: 0.2),
               ),
               padding: const EdgeInsets.all(15),
               child: Text(
